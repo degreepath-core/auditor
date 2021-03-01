@@ -4,6 +4,7 @@ target/
 output/
 *.egg-info
 /venv/
+/.venv/
 __pycache__/
 /.env
 /.conf.logging.yaml
