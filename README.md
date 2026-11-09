@@ -44,6 +44,8 @@ Basic usage is as follows:
 $ uv run python -m dp --student <student.json> --area <area.yaml>
 ```
 
+No student file handy? [`fixtures/`](fixtures/README.md) has synthetic students and areas: run `python3 -m dp.bin.fixture expand fixtures/students/composite-double-major.yaml > student.json`, then audit it against `fixtures/areas/2020-21/T900.yaml`.
+
 ## Batch Job Server
 
 The `dp.server` module handles sorting through the queued jobs, both batched and one-off what-ifs.
