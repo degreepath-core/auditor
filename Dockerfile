@@ -1,4 +1,4 @@
-FROM rust:1.50-buster AS builder
+FROM rust:1.99.1-trixie AS builder
 
 WORKDIR /usr/src/reports
 
@@ -8,7 +8,7 @@ COPY ./reports ./reports
 COPY ./src ./src
 COPY ./formatter ./formatter
 
-RUN cargo build --release --bin dp-report
+RUN cargo build --locked --release --bin dp-report
 
 FROM python:3.15-slim-trixie
 

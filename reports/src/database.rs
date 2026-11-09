@@ -1,6 +1,6 @@
 use crate::ReportType;
 use anyhow;
-use dotenv::dotenv;
+use dotenvy::dotenv;
 use openssl::ssl::{SslConnector, SslMethod, SslVerifyMode};
 use postgres::{config::SslMode, Client, Config};
 use postgres_openssl::MakeTlsConnector;

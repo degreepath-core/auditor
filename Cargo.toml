@@ -2,7 +2,8 @@
 name = "degreepath"
 version = "0.1.0"
 authors = ["Hawken Rives <rives@stolaf.edu>"]
-edition = "2018"
+edition = "2024"
+rust-version = "1.99"
 
 [workspace]
 
@@ -11,7 +12,7 @@ name = "dp-report"
 path = "src/dp-report.rs"
 
 [dependencies]
-anyhow = "1.0"
-clap = "3.0.0-beta.2"
+anyhow = "1.0.104"
+clap = { version = "4.6", features = ["derive"] }
 dp-formatter = { path = "./formatter" }
 dp-reports = { path = "./reports" }
