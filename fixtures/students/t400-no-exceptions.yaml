@@ -1,0 +1,9 @@
+# Scenario: the baseline for the other t400 fixtures — one Elective short
+# and no Capstone.
+areas: [{code: T400, kind: concentration, degree: B.A.}]
+courses:
+  - DEPT 101 2018-1 B
+  - DEPT 201 2019-1 B
+  - OTHR 250 2019-1 B
+expect:
+  T400: {status: needs-more-items, requirements: {Electives: needs-more-items, Capstone: empty}}

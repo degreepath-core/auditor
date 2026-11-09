@@ -1,0 +1,220 @@
+{
+  "code": "T110",
+  "degree": "B.A.",
+  "gpa": "3.00",
+  "kind": "concentration",
+  "limit": [],
+  "max_rank": "3",
+  "name": "Fixture: count/of",
+  "ok": true,
+  "overridden": false,
+  "path": [
+    "$"
+  ],
+  "rank": "2",
+  "result": {
+    "at_most": false,
+    "audit": [],
+    "audit_status": "waived",
+    "count": 2,
+    "items": [
+      {
+        "allow_claimed": false,
+        "ap": null,
+        "auto_waived": false,
+        "claims": [
+          {
+            "claimed_by": [
+              "$",
+              ".count",
+              "[0]",
+              "*DEPT 101"
+            ],
+            "clbid": "DEPT 101 2018-1",
+            "crsid": "DEPT 101"
+          }
+        ],
+        "clbid": null,
+        "course": "DEPT 101",
+        "crsid": null,
+        "excluded_clbids": [],
+        "forced": false,
+        "from_claimed": false,
+        "grade": null,
+        "grade_option": null,
+        "hidden": false,
+        "inserted": false,
+        "institution": null,
+        "matched_scedid": null,
+        "max_rank": "1",
+        "name": null,
+        "optional": false,
+        "overridden": false,
+        "path": [
+          "$",
+          ".count",
+          "[0]",
+          "*DEPT 101"
+        ],
+        "rank": "1",
+        "section": null,
+        "state": "result",
+        "status": "done",
+        "sub_type": null,
+        "term": null,
+        "type": "course",
+        "year": null
+      },
+      {
+        "allow_claimed": false,
+        "ap": null,
+        "auto_waived": false,
+        "claims": [
+          {
+            "claimed_by": [
+              "$",
+              ".count",
+              "[1]",
+              "*DEPT 102"
+            ],
+            "clbid": "DEPT 102 2018-3",
+            "crsid": "DEPT 102"
+          }
+        ],
+        "clbid": null,
+        "course": "DEPT 102",
+        "crsid": null,
+        "excluded_clbids": [],
+        "forced": false,
+        "from_claimed": false,
+        "grade": null,
+        "grade_option": null,
+        "hidden": false,
+        "inserted": false,
+        "institution": null,
+        "matched_scedid": null,
+        "max_rank": "1",
+        "name": null,
+        "optional": false,
+        "overridden": false,
+        "path": [
+          "$",
+          ".count",
+          "[1]",
+          "*DEPT 102"
+        ],
+        "rank": "1",
+        "section": null,
+        "state": "result",
+        "status": "done",
+        "sub_type": null,
+        "term": null,
+        "type": "course",
+        "year": null
+      },
+      {
+        "in_gpa": true,
+        "is_audited": false,
+        "is_contract": false,
+        "is_disjoint": null,
+        "max_rank": "1",
+        "message": null,
+        "name": "Electives",
+        "overridden": false,
+        "path": [
+          "$",
+          ".count",
+          "[2]",
+          "%Electives"
+        ],
+        "rank": "0",
+        "result": {
+          "allow_claimed": false,
+          "assertions": [
+            {
+              "data-type": "course",
+              "evaluated": false,
+              "expected": "2",
+              "inserted_clbids": [],
+              "key": "count(courses)",
+              "max_rank": "1",
+              "operator": "GreaterThanOrEqualTo",
+              "path": [
+                "$",
+                ".count",
+                "[2]",
+                "%Electives",
+                ".query",
+                ".assertions",
+                "[0]",
+                ".assert"
+              ],
+              "rank": "0",
+              "resolved": null,
+              "resolved_clbids": [],
+              "resolved_items": [],
+              "status": "empty",
+              "type": "assertion",
+              "where": null
+            }
+          ],
+          "claims": [],
+          "data-type": "course",
+          "failures": [],
+          "include_failed": false,
+          "inserted": [],
+          "limit": [],
+          "max_rank": "1",
+          "output": [],
+          "overridden": false,
+          "path": [
+            "$",
+            ".count",
+            "[2]",
+            "%Electives",
+            ".query"
+          ],
+          "rank": "0",
+          "source": "courses",
+          "state": "rule",
+          "status": "empty",
+          "type": "query",
+          "where": {
+            "predicates": [
+              {
+                "expected": "DEPT",
+                "key": "subject",
+                "operator": "EqualTo",
+                "type": "predicate"
+              },
+              {
+                "expected": 200,
+                "key": "level",
+                "operator": "GreaterThanOrEqualTo",
+                "type": "predicate"
+              }
+            ],
+            "type": "pred--and"
+          }
+        },
+        "state": "rule",
+        "status": "empty",
+        "type": "requirement"
+      }
+    ],
+    "max_rank": "3",
+    "overridden": false,
+    "path": [
+      "$",
+      ".count"
+    ],
+    "rank": "2",
+    "state": "result",
+    "status": "done",
+    "type": "count"
+  },
+  "state": "result",
+  "status": "done",
+  "type": "area",
+  "version": 3
+}

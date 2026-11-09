@@ -1,0 +1,12 @@
+# Scenario: an insert exception counts OTHR 250 toward Electives, and an
+# override exception marks Capstone as satisfied.
+areas: [{code: T400, kind: concentration, degree: B.A.}]
+courses:
+  - DEPT 101 2018-1 B
+  - DEPT 201 2019-1 B
+  - OTHR 250 2019-1 B
+exceptions:
+  - {area_code: T400, type: insert, path: ['$', '.count', '[1]', '%Electives', '.query'], clbid: OTHR 250 2019-1}
+  - {area_code: T400, type: override, path: ['$', '.count', '[2]', '%Capstone']}
+expect:
+  T400: {status: done, requirements: {Electives: done, Capstone: waived}}

@@ -1,0 +1,9 @@
+# Scenario: one of Either, both of Both, and one of Any.
+areas: [{code: T101, kind: concentration, degree: B.A.}]
+courses:
+  - DEPT 110 2018-1 B
+  - DEPT 120 2018-1 B
+  - DEPT 121 2018-3 B
+  - DEPT 132 2019-1 B
+expect:
+  T101: {status: done, requirements: {Either: done, Both: done, Any: done}}

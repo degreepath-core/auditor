@@ -1,0 +1,32 @@
+# Exercises: claiming — a course claimed by Core is unavailable to Writing,
+# while Survey (allow_claimed) may reuse claimed courses.
+name: "Fixture: claiming"
+type: concentration
+code: T310
+degree: B.A.
+
+result:
+  all:
+    - requirement: Core
+    - requirement: Writing
+    - requirement: Survey
+
+requirements:
+  Core:
+    result:
+      both:
+        - course: DEPT 101
+        - course: DEPT 102
+
+  Writing:
+    result:
+      from: courses
+      where: {gereqs: {$eq: WRI}}
+      assert: {count(courses): {$gte: 1}}
+
+  Survey:
+    result:
+      from: courses
+      allow_claimed: true
+      where: {subject: {$eq: DEPT}}
+      assert: {count(courses): {$gte: 2}}

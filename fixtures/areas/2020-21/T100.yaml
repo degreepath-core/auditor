@@ -1,0 +1,17 @@
+# Exercises: `course` rules — a course matches by subject and number; a
+# missing or failed course leaves the rule unsatisfied.
+name: "Fixture: course rules"
+type: concentration
+code: T100
+degree: B.A.
+
+result:
+  all:
+    - course: DEPT 101
+    - course: DEPT 102
+    - requirement: Capstone
+
+requirements:
+  Capstone:
+    result:
+      course: DEPT 399

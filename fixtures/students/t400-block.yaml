@@ -1,0 +1,12 @@
+# Scenario: a block exception keeps DEPT 202 out of Electives, so a
+# transcript that would otherwise pass falls short.
+areas: [{code: T400, kind: concentration, degree: B.A.}]
+courses:
+  - DEPT 101 2018-1 B
+  - DEPT 201 2019-1 B
+  - DEPT 202 2019-3 B
+  - DEPT 399 2020-1 B
+exceptions:
+  - {area_code: T400, type: block, path: ['$', '.count', '[1]', '%Electives', '.query'], clbid: DEPT 202 2019-3}
+expect:
+  T400: {status: needs-more-items, requirements: {Electives: needs-more-items, Capstone: done}}

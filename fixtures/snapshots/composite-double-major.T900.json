@@ -1,0 +1,1249 @@
+{
+  "code": "T900",
+  "degree": "B.A.",
+  "gpa": "3.75",
+  "kind": "major",
+  "limit": [],
+  "max_rank": "19",
+  "name": "Fixture: Imaginary Studies",
+  "ok": true,
+  "overridden": false,
+  "path": [
+    "$"
+  ],
+  "rank": "18",
+  "result": {
+    "at_most": false,
+    "audit": [],
+    "audit_status": "waived",
+    "count": 6,
+    "items": [
+      {
+        "in_gpa": true,
+        "is_audited": false,
+        "is_contract": false,
+        "is_disjoint": null,
+        "max_rank": "3",
+        "message": null,
+        "name": "Foundations",
+        "overridden": false,
+        "path": [
+          "$",
+          ".count",
+          "[0]",
+          "%Foundations"
+        ],
+        "rank": "3",
+        "result": {
+          "at_most": false,
+          "audit": [],
+          "audit_status": "waived",
+          "count": 2,
+          "items": [
+            {
+              "allow_claimed": false,
+              "ap": null,
+              "auto_waived": false,
+              "claims": [
+                {
+                  "claimed_by": [
+                    "$",
+                    ".count",
+                    "[0]",
+                    "%Foundations",
+                    ".count",
+                    "[0]",
+                    "*IMAG 101"
+                  ],
+                  "clbid": "IMAG 101 2019-1",
+                  "crsid": "IMAG 101"
+                }
+              ],
+              "clbid": null,
+              "course": "IMAG 101",
+              "crsid": null,
+              "excluded_clbids": [],
+              "forced": false,
+              "from_claimed": false,
+              "grade": null,
+              "grade_option": null,
+              "hidden": false,
+              "inserted": false,
+              "institution": null,
+              "matched_scedid": null,
+              "max_rank": "1",
+              "name": null,
+              "optional": false,
+              "overridden": false,
+              "path": [
+                "$",
+                ".count",
+                "[0]",
+                "%Foundations",
+                ".count",
+                "[0]",
+                "*IMAG 101"
+              ],
+              "rank": "1",
+              "section": null,
+              "state": "result",
+              "status": "done",
+              "sub_type": null,
+              "term": null,
+              "type": "course",
+              "year": null
+            },
+            {
+              "allow_claimed": false,
+              "ap": null,
+              "auto_waived": false,
+              "claims": [
+                {
+                  "claimed_by": [
+                    "$",
+                    ".count",
+                    "[0]",
+                    "%Foundations",
+                    ".count",
+                    "[1]",
+                    "*IMAG 102"
+                  ],
+                  "clbid": "IMAG 102 2019-3",
+                  "crsid": "IMAG 102"
+                }
+              ],
+              "clbid": null,
+              "course": "IMAG 102",
+              "crsid": null,
+              "excluded_clbids": [],
+              "forced": false,
+              "from_claimed": false,
+              "grade": null,
+              "grade_option": null,
+              "hidden": false,
+              "inserted": false,
+              "institution": null,
+              "matched_scedid": null,
+              "max_rank": "1",
+              "name": null,
+              "optional": false,
+              "overridden": false,
+              "path": [
+                "$",
+                ".count",
+                "[0]",
+                "%Foundations",
+                ".count",
+                "[1]",
+                "*IMAG 102"
+              ],
+              "rank": "1",
+              "section": null,
+              "state": "result",
+              "status": "done",
+              "sub_type": null,
+              "term": null,
+              "type": "course",
+              "year": null
+            }
+          ],
+          "max_rank": "2",
+          "overridden": false,
+          "path": [
+            "$",
+            ".count",
+            "[0]",
+            "%Foundations",
+            ".count"
+          ],
+          "rank": "2",
+          "state": "result",
+          "status": "done",
+          "type": "count"
+        },
+        "state": "result",
+        "status": "done",
+        "type": "requirement"
+      },
+      {
+        "in_gpa": true,
+        "is_audited": false,
+        "is_contract": false,
+        "is_disjoint": null,
+        "max_rank": "3",
+        "message": null,
+        "name": "Methods",
+        "overridden": false,
+        "path": [
+          "$",
+          ".count",
+          "[1]",
+          "%Methods"
+        ],
+        "rank": "2",
+        "result": {
+          "at_most": false,
+          "audit": [],
+          "audit_status": "waived",
+          "count": 1,
+          "items": [
+            {
+              "allow_claimed": false,
+              "ap": null,
+              "auto_waived": false,
+              "claims": [],
+              "clbid": null,
+              "course": "IMAG 210",
+              "crsid": null,
+              "excluded_clbids": [],
+              "forced": false,
+              "from_claimed": false,
+              "grade": null,
+              "grade_option": null,
+              "hidden": false,
+              "inserted": false,
+              "institution": null,
+              "matched_scedid": null,
+              "max_rank": "1",
+              "name": null,
+              "optional": false,
+              "overridden": false,
+              "path": [
+                "$",
+                ".count",
+                "[1]",
+                "%Methods",
+                ".count",
+                "[0]",
+                "*IMAG 210"
+              ],
+              "rank": "0",
+              "section": null,
+              "state": "rule",
+              "status": "empty",
+              "sub_type": null,
+              "term": null,
+              "type": "course",
+              "year": null
+            },
+            {
+              "allow_claimed": false,
+              "ap": null,
+              "auto_waived": false,
+              "claims": [
+                {
+                  "claimed_by": [
+                    "$",
+                    ".count",
+                    "[1]",
+                    "%Methods",
+                    ".count",
+                    "[1]",
+                    "*IMAG 211"
+                  ],
+                  "clbid": "IMAG 211 2020-1",
+                  "crsid": "IMAG 211"
+                }
+              ],
+              "clbid": null,
+              "course": "IMAG 211",
+              "crsid": null,
+              "excluded_clbids": [],
+              "forced": false,
+              "from_claimed": false,
+              "grade": null,
+              "grade_option": null,
+              "hidden": false,
+              "inserted": false,
+              "institution": null,
+              "matched_scedid": null,
+              "max_rank": "1",
+              "name": null,
+              "optional": false,
+              "overridden": false,
+              "path": [
+                "$",
+                ".count",
+                "[1]",
+                "%Methods",
+                ".count",
+                "[1]",
+                "*IMAG 211"
+              ],
+              "rank": "1",
+              "section": null,
+              "state": "result",
+              "status": "done",
+              "sub_type": null,
+              "term": null,
+              "type": "course",
+              "year": null
+            }
+          ],
+          "max_rank": "2",
+          "overridden": false,
+          "path": [
+            "$",
+            ".count",
+            "[1]",
+            "%Methods",
+            ".count"
+          ],
+          "rank": "1",
+          "state": "result",
+          "status": "done",
+          "type": "count"
+        },
+        "state": "result",
+        "status": "done",
+        "type": "requirement"
+      },
+      {
+        "in_gpa": true,
+        "is_audited": false,
+        "is_contract": false,
+        "is_disjoint": null,
+        "max_rank": "2",
+        "message": "<p>Four IMAG courses at level II or above; at most one may be taken elsewhere.</p>",
+        "name": "Electives",
+        "overridden": false,
+        "path": [
+          "$",
+          ".count",
+          "[2]",
+          "%Electives"
+        ],
+        "rank": "2",
+        "result": {
+          "allow_claimed": false,
+          "assertions": [
+            {
+              "data-type": "course",
+              "evaluated": true,
+              "expected": "4",
+              "inserted_clbids": [],
+              "key": "count(courses)",
+              "max_rank": "1",
+              "operator": "GreaterThanOrEqualTo",
+              "path": [
+                "$",
+                ".count",
+                "[2]",
+                "%Electives",
+                ".query",
+                ".assertions",
+                "[0]",
+                ".assert"
+              ],
+              "rank": "1",
+              "resolved": "4",
+              "resolved_clbids": [
+                "IMAG 220 2020-1",
+                "IMAG 230 2020-3",
+                "IMAG 240 2021-1",
+                "IMAG 250 2021-1"
+              ],
+              "resolved_items": [
+                "IMAG 220 2020-1",
+                "IMAG 230 2020-3",
+                "IMAG 240 2021-1",
+                "IMAG 250 2021-1"
+              ],
+              "status": "done",
+              "type": "assertion",
+              "where": null
+            }
+          ],
+          "claims": [
+            {
+              "claimed_by": [
+                "$",
+                ".count",
+                "[2]",
+                "%Electives",
+                ".query"
+              ],
+              "clbid": "IMAG 220 2020-1",
+              "crsid": "IMAG 220"
+            },
+            {
+              "claimed_by": [
+                "$",
+                ".count",
+                "[2]",
+                "%Electives",
+                ".query"
+              ],
+              "clbid": "IMAG 230 2020-3",
+              "crsid": "IMAG 230"
+            },
+            {
+              "claimed_by": [
+                "$",
+                ".count",
+                "[2]",
+                "%Electives",
+                ".query"
+              ],
+              "clbid": "IMAG 240 2021-1",
+              "crsid": "IMAG 240"
+            },
+            {
+              "claimed_by": [
+                "$",
+                ".count",
+                "[2]",
+                "%Electives",
+                ".query"
+              ],
+              "clbid": "IMAG 250 2021-1",
+              "crsid": "IMAG 250"
+            }
+          ],
+          "data-type": "course",
+          "failures": [],
+          "include_failed": false,
+          "inserted": [],
+          "limit": [
+            {
+              "at_most": "1",
+              "at_most_what": "Courses",
+              "message": null,
+              "type": "limit",
+              "where": {
+                "expected": false,
+                "key": "is_stolaf",
+                "operator": "EqualTo",
+                "type": "predicate"
+              }
+            }
+          ],
+          "max_rank": "1",
+          "output": [
+            {
+              "key": "scedid",
+              "type": "class",
+              "value": null
+            },
+            {
+              "key": "scedid",
+              "type": "class",
+              "value": null
+            },
+            {
+              "key": "scedid",
+              "type": "class",
+              "value": null
+            },
+            {
+              "key": "scedid",
+              "type": "class",
+              "value": null
+            }
+          ],
+          "overridden": false,
+          "path": [
+            "$",
+            ".count",
+            "[2]",
+            "%Electives",
+            ".query"
+          ],
+          "rank": "1",
+          "source": "courses",
+          "state": "result",
+          "status": "done",
+          "type": "query",
+          "where": {
+            "predicates": [
+              {
+                "expected": "IMAG",
+                "key": "subject",
+                "operator": "EqualTo",
+                "type": "predicate"
+              },
+              {
+                "expected": [
+                  200,
+                  300
+                ],
+                "key": "level",
+                "operator": "In",
+                "type": "predicate"
+              },
+              {
+                "expected": "399",
+                "key": "number",
+                "operator": "NotEqualTo",
+                "type": "predicate"
+              }
+            ],
+            "type": "pred--and"
+          }
+        },
+        "state": "result",
+        "status": "done",
+        "type": "requirement"
+      },
+      {
+        "in_gpa": true,
+        "is_audited": false,
+        "is_contract": false,
+        "is_disjoint": null,
+        "max_rank": "2",
+        "message": null,
+        "name": "Writing in the Major",
+        "overridden": false,
+        "path": [
+          "$",
+          ".count",
+          "[3]",
+          "%Writing in the Major"
+        ],
+        "rank": "2",
+        "result": {
+          "allow_claimed": true,
+          "assertions": [
+            {
+              "data-type": "course",
+              "evaluated": true,
+              "expected": "1",
+              "inserted_clbids": [],
+              "key": "count(courses)",
+              "max_rank": "1",
+              "operator": "GreaterThanOrEqualTo",
+              "path": [
+                "$",
+                ".count",
+                "[3]",
+                "%Writing in the Major",
+                ".query",
+                ".assertions",
+                "[0]",
+                ".assert"
+              ],
+              "rank": "1",
+              "resolved": "1",
+              "resolved_clbids": [
+                "IMAG 211 2020-1"
+              ],
+              "resolved_items": [
+                "IMAG 211 2020-1"
+              ],
+              "status": "done",
+              "type": "assertion",
+              "where": null
+            }
+          ],
+          "claims": [
+            {
+              "claimed_by": [
+                "$",
+                ".count",
+                "[3]",
+                "%Writing in the Major",
+                ".query"
+              ],
+              "clbid": "IMAG 211 2020-1",
+              "crsid": "IMAG 211"
+            }
+          ],
+          "data-type": "course",
+          "failures": [],
+          "include_failed": false,
+          "inserted": [],
+          "limit": [],
+          "max_rank": "1",
+          "output": [
+            {
+              "key": "scedid",
+              "type": "class",
+              "value": null
+            }
+          ],
+          "overridden": false,
+          "path": [
+            "$",
+            ".count",
+            "[3]",
+            "%Writing in the Major",
+            ".query"
+          ],
+          "rank": "1",
+          "source": "courses",
+          "state": "result",
+          "status": "done",
+          "type": "query",
+          "where": {
+            "predicates": [
+              {
+                "expected": "IMAG",
+                "key": "subject",
+                "operator": "EqualTo",
+                "type": "predicate"
+              },
+              {
+                "expected": "WRI",
+                "key": "gereqs",
+                "operator": "EqualTo",
+                "type": "predicate"
+              }
+            ],
+            "type": "pred--and"
+          }
+        },
+        "state": "result",
+        "status": "done",
+        "type": "requirement"
+      },
+      {
+        "in_gpa": true,
+        "is_audited": false,
+        "is_contract": false,
+        "is_disjoint": null,
+        "max_rank": "2",
+        "message": null,
+        "name": "Capstone",
+        "overridden": false,
+        "path": [
+          "$",
+          ".count",
+          "[4]",
+          "%Capstone"
+        ],
+        "rank": "2",
+        "result": {
+          "allow_claimed": false,
+          "ap": null,
+          "auto_waived": false,
+          "claims": [
+            {
+              "claimed_by": [
+                "$",
+                ".count",
+                "[4]",
+                "%Capstone",
+                "*IMAG 399"
+              ],
+              "clbid": "IMAG 399 2022-1",
+              "crsid": "IMAG 399"
+            }
+          ],
+          "clbid": null,
+          "course": "IMAG 399",
+          "crsid": null,
+          "excluded_clbids": [],
+          "forced": false,
+          "from_claimed": false,
+          "grade": null,
+          "grade_option": null,
+          "hidden": false,
+          "inserted": false,
+          "institution": null,
+          "matched_scedid": null,
+          "max_rank": "1",
+          "name": null,
+          "optional": false,
+          "overridden": false,
+          "path": [
+            "$",
+            ".count",
+            "[4]",
+            "%Capstone",
+            "*IMAG 399"
+          ],
+          "rank": "1",
+          "section": null,
+          "state": "result",
+          "status": "done",
+          "sub_type": null,
+          "term": null,
+          "type": "course",
+          "year": null
+        },
+        "state": "result",
+        "status": "done",
+        "type": "requirement"
+      },
+      {
+        "in_gpa": false,
+        "is_audited": false,
+        "is_contract": false,
+        "is_disjoint": null,
+        "max_rank": "7",
+        "message": null,
+        "name": "Common B.A. Major Requirements",
+        "overridden": false,
+        "path": [
+          "$",
+          "%Common Requirements"
+        ],
+        "rank": "7",
+        "result": {
+          "at_most": false,
+          "audit": [],
+          "audit_status": "waived",
+          "count": 3,
+          "items": [
+            {
+              "in_gpa": true,
+              "is_audited": false,
+              "is_contract": false,
+              "is_disjoint": null,
+              "max_rank": "2",
+              "message": "<p>Of the credits counting toward the minimum requirements for a major, a total of six (6.00) must be completed with a grade of C or higher.</p>",
+              "name": "Credits at a C or higher",
+              "overridden": false,
+              "path": [
+                "$",
+                "%Common Requirements",
+                ".count",
+                "[0]",
+                "%Credits at a C or higher"
+              ],
+              "rank": "2",
+              "result": {
+                "allow_claimed": true,
+                "assertions": [
+                  {
+                    "data-type": "course",
+                    "evaluated": true,
+                    "expected": "6",
+                    "inserted_clbids": [],
+                    "key": "sum(credits)",
+                    "max_rank": "1",
+                    "operator": "GreaterThanOrEqualTo",
+                    "path": [
+                      "$",
+                      "%Common Requirements",
+                      ".count",
+                      "[0]",
+                      "%Credits at a C or higher",
+                      ".query",
+                      ".assertions",
+                      "[0]",
+                      ".assert"
+                    ],
+                    "rank": "1",
+                    "resolved": "8.00",
+                    "resolved_clbids": [
+                      "IMAG 101 2019-1",
+                      "IMAG 102 2019-3",
+                      "IMAG 211 2020-1",
+                      "IMAG 220 2020-1",
+                      "IMAG 230 2020-3",
+                      "IMAG 240 2021-1",
+                      "IMAG 250 2021-1",
+                      "IMAG 399 2022-1"
+                    ],
+                    "resolved_items": [
+                      "1.00",
+                      "1.00",
+                      "1.00",
+                      "1.00",
+                      "1.00",
+                      "1.00",
+                      "1.00",
+                      "1.00"
+                    ],
+                    "status": "done",
+                    "type": "assertion",
+                    "where": null
+                  }
+                ],
+                "claims": [],
+                "data-type": "course",
+                "failures": [],
+                "include_failed": false,
+                "inserted": [],
+                "limit": [],
+                "max_rank": "1",
+                "output": [
+                  {
+                    "key": "scedid",
+                    "type": "class",
+                    "value": null
+                  },
+                  {
+                    "key": "scedid",
+                    "type": "class",
+                    "value": null
+                  },
+                  {
+                    "key": "scedid",
+                    "type": "class",
+                    "value": null
+                  },
+                  {
+                    "key": "scedid",
+                    "type": "class",
+                    "value": null
+                  },
+                  {
+                    "key": "scedid",
+                    "type": "class",
+                    "value": null
+                  },
+                  {
+                    "key": "scedid",
+                    "type": "class",
+                    "value": null
+                  },
+                  {
+                    "key": "scedid",
+                    "type": "class",
+                    "value": null
+                  },
+                  {
+                    "key": "scedid",
+                    "type": "class",
+                    "value": null
+                  }
+                ],
+                "overridden": false,
+                "path": [
+                  "$",
+                  "%Common Requirements",
+                  ".count",
+                  "[0]",
+                  "%Credits at a C or higher",
+                  ".query"
+                ],
+                "rank": "1",
+                "source": "courses",
+                "state": "result",
+                "status": "done",
+                "type": "query",
+                "where": {
+                  "predicates": [
+                    {
+                      "predicates": [
+                        {
+                          "expected": "C",
+                          "key": "grade",
+                          "operator": "GreaterThanOrEqualTo",
+                          "type": "predicate"
+                        },
+                        {
+                          "expected": true,
+                          "key": "is_in_progress",
+                          "operator": "EqualTo",
+                          "type": "predicate"
+                        }
+                      ],
+                      "type": "pred--or"
+                    },
+                    {
+                      "expected": "0",
+                      "key": "credits",
+                      "operator": "GreaterThan",
+                      "original": 0,
+                      "type": "predicate"
+                    }
+                  ],
+                  "type": "pred--and"
+                }
+              },
+              "state": "result",
+              "status": "done",
+              "type": "requirement"
+            },
+            {
+              "in_gpa": true,
+              "is_audited": false,
+              "is_contract": false,
+              "is_disjoint": null,
+              "max_rank": "2",
+              "message": "<p>Only one full-course equivalent (1.00-credit course) taken S/U may count toward the minimum requirements for a major.</p>",
+              "name": "Credits taken S/U",
+              "overridden": false,
+              "path": [
+                "$",
+                "%Common Requirements",
+                ".count",
+                "[1]",
+                "%Credits taken S/U"
+              ],
+              "rank": "2",
+              "result": {
+                "allow_claimed": true,
+                "assertions": [
+                  {
+                    "data-type": "course",
+                    "evaluated": true,
+                    "expected": "1",
+                    "inserted_clbids": [],
+                    "key": "count(courses)",
+                    "max_rank": "1",
+                    "operator": "LessThanOrEqualTo",
+                    "path": [
+                      "$",
+                      "%Common Requirements",
+                      ".count",
+                      "[1]",
+                      "%Credits taken S/U",
+                      ".query",
+                      ".assertions",
+                      "[0]",
+                      ".assert"
+                    ],
+                    "rank": "1",
+                    "resolved": "0",
+                    "resolved_clbids": [],
+                    "resolved_items": [],
+                    "status": "done",
+                    "type": "assertion",
+                    "where": null
+                  }
+                ],
+                "claims": [],
+                "data-type": "course",
+                "failures": [],
+                "include_failed": false,
+                "inserted": [],
+                "limit": [],
+                "max_rank": "1",
+                "output": [],
+                "overridden": false,
+                "path": [
+                  "$",
+                  "%Common Requirements",
+                  ".count",
+                  "[1]",
+                  "%Credits taken S/U",
+                  ".query"
+                ],
+                "rank": "1",
+                "source": "courses",
+                "state": "result",
+                "status": "done",
+                "type": "query",
+                "where": {
+                  "predicates": [
+                    {
+                      "expected": "s/u",
+                      "key": "grade_option",
+                      "operator": "EqualTo",
+                      "type": "predicate"
+                    },
+                    {
+                      "expected": "1",
+                      "key": "credits",
+                      "operator": "EqualTo",
+                      "original": 1,
+                      "type": "predicate"
+                    }
+                  ],
+                  "type": "pred--and"
+                }
+              },
+              "state": "result",
+              "status": "done",
+              "type": "requirement"
+            },
+            {
+              "in_gpa": true,
+              "is_audited": false,
+              "is_contract": false,
+              "is_disjoint": null,
+              "max_rank": "2",
+              "message": "<p>21 total credits must be completed outside of the SIS 'subject' code of the major, 'IMAG'.</p>",
+              "name": "Credits outside the major",
+              "overridden": false,
+              "path": [
+                "$",
+                "%Common Requirements",
+                ".count",
+                "[2]",
+                "%Credits outside the major"
+              ],
+              "rank": "2",
+              "result": {
+                "allow_claimed": true,
+                "assertions": [
+                  {
+                    "data-type": "course",
+                    "evaluated": true,
+                    "expected": "21",
+                    "inserted_clbids": [],
+                    "key": "sum(credits)",
+                    "max_rank": "1",
+                    "operator": "GreaterThanOrEqualTo",
+                    "path": [
+                      "$",
+                      "%Common Requirements",
+                      ".count",
+                      "[2]",
+                      "%Credits outside the major",
+                      ".query",
+                      ".assertions",
+                      "[0]",
+                      ".assert"
+                    ],
+                    "rank": "1",
+                    "resolved": "23.00",
+                    "resolved_clbids": [
+                      "ARTS 105 2021-3",
+                      "ARTS 115 2021-3",
+                      "BIOL 107 2022-3",
+                      "BIOL 117 2022-3",
+                      "ECON 106 2022-1",
+                      "ECON 116 2022-1",
+                      "HIST 102 2020-1",
+                      "HIST 112 2020-1",
+                      "HIST 122 2020-1",
+                      "LANG 103 2020-3",
+                      "LANG 113 2020-3",
+                      "LANG 123 2020-3",
+                      "MATH 101 2019-3",
+                      "MATH 111 2019-3",
+                      "MATH 121 2019-3",
+                      "PHIL 104 2021-1",
+                      "PHIL 114 2021-1",
+                      "PRET 121 2019-1",
+                      "PRET 125 2019-3",
+                      "PRET 310 2020-3",
+                      "WRIT 100 2019-1",
+                      "WRIT 110 2019-1",
+                      "WRIT 120 2019-1"
+                    ],
+                    "resolved_items": [
+                      "1.00",
+                      "1.00",
+                      "1.00",
+                      "1.00",
+                      "1.00",
+                      "1.00",
+                      "1.00",
+                      "1.00",
+                      "1.00",
+                      "1.00",
+                      "1.00",
+                      "1.00",
+                      "1.00",
+                      "1.00",
+                      "1.00",
+                      "1.00",
+                      "1.00",
+                      "1.00",
+                      "1.00",
+                      "1.00",
+                      "1.00",
+                      "1.00",
+                      "1.00"
+                    ],
+                    "status": "done",
+                    "type": "assertion",
+                    "where": null
+                  }
+                ],
+                "claims": [],
+                "data-type": "course",
+                "failures": [],
+                "include_failed": false,
+                "inserted": [],
+                "limit": [],
+                "max_rank": "1",
+                "output": [
+                  {
+                    "key": "scedid",
+                    "type": "class",
+                    "value": null
+                  },
+                  {
+                    "key": "scedid",
+                    "type": "class",
+                    "value": null
+                  },
+                  {
+                    "key": "scedid",
+                    "type": "class",
+                    "value": null
+                  },
+                  {
+                    "key": "scedid",
+                    "type": "class",
+                    "value": null
+                  },
+                  {
+                    "key": "scedid",
+                    "type": "class",
+                    "value": null
+                  },
+                  {
+                    "key": "scedid",
+                    "type": "class",
+                    "value": null
+                  },
+                  {
+                    "key": "scedid",
+                    "type": "class",
+                    "value": null
+                  },
+                  {
+                    "key": "scedid",
+                    "type": "class",
+                    "value": null
+                  },
+                  {
+                    "key": "scedid",
+                    "type": "class",
+                    "value": null
+                  },
+                  {
+                    "key": "scedid",
+                    "type": "class",
+                    "value": null
+                  },
+                  {
+                    "key": "scedid",
+                    "type": "class",
+                    "value": null
+                  },
+                  {
+                    "key": "scedid",
+                    "type": "class",
+                    "value": null
+                  },
+                  {
+                    "key": "scedid",
+                    "type": "class",
+                    "value": null
+                  },
+                  {
+                    "key": "scedid",
+                    "type": "class",
+                    "value": null
+                  },
+                  {
+                    "key": "scedid",
+                    "type": "class",
+                    "value": null
+                  },
+                  {
+                    "key": "scedid",
+                    "type": "class",
+                    "value": null
+                  },
+                  {
+                    "key": "scedid",
+                    "type": "class",
+                    "value": null
+                  },
+                  {
+                    "key": "scedid",
+                    "type": "class",
+                    "value": null
+                  },
+                  {
+                    "key": "scedid",
+                    "type": "class",
+                    "value": null
+                  },
+                  {
+                    "key": "scedid",
+                    "type": "class",
+                    "value": null
+                  },
+                  {
+                    "key": "scedid",
+                    "type": "class",
+                    "value": null
+                  },
+                  {
+                    "key": "scedid",
+                    "type": "class",
+                    "value": null
+                  },
+                  {
+                    "key": "scedid",
+                    "type": "class",
+                    "value": null
+                  },
+                  {
+                    "key": "scedid",
+                    "type": "class",
+                    "value": null
+                  },
+                  {
+                    "key": "scedid",
+                    "type": "class",
+                    "value": null
+                  }
+                ],
+                "overridden": false,
+                "path": [
+                  "$",
+                  "%Common Requirements",
+                  ".count",
+                  "[2]",
+                  "%Credits outside the major",
+                  ".query"
+                ],
+                "rank": "1",
+                "source": "courses",
+                "state": "result",
+                "status": "done",
+                "type": "query",
+                "where": {
+                  "predicates": [
+                    {
+                      "expected": "IMAG",
+                      "key": "subject",
+                      "operator": "NotEqualTo",
+                      "type": "predicate"
+                    },
+                    {
+                      "expected": "REG",
+                      "key": "subject",
+                      "operator": "NotEqualTo",
+                      "type": "predicate"
+                    },
+                    {
+                      "expected": "OFFC",
+                      "key": "subject",
+                      "operator": "NotEqualTo",
+                      "type": "predicate"
+                    }
+                  ],
+                  "type": "pred--and"
+                }
+              },
+              "state": "result",
+              "status": "done",
+              "type": "requirement"
+            }
+          ],
+          "max_rank": "6",
+          "overridden": false,
+          "path": [
+            "$",
+            "%Common Requirements",
+            ".count"
+          ],
+          "rank": "6",
+          "state": "result",
+          "status": "done",
+          "type": "count"
+        },
+        "state": "result",
+        "status": "done",
+        "type": "requirement"
+      }
+    ],
+    "max_rank": "19",
+    "overridden": false,
+    "path": [
+      "$",
+      ".count"
+    ],
+    "rank": "18",
+    "state": "result",
+    "status": "done",
+    "type": "count"
+  },
+  "state": "result",
+  "status": "done",
+  "type": "area",
+  "version": 3
+}

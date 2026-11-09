@@ -1,0 +1,7 @@
+# Scenario: DEPT 102 was never taken, so the area needs more items.
+areas: [{code: T100, kind: concentration, degree: B.A.}]
+courses:
+  - DEPT 101 2018-1 A
+  - DEPT 399 2020-1 A
+expect:
+  T100: {status: needs-more-items, requirements: {Capstone: done}}

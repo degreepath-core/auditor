@@ -1,0 +1,9 @@
+# Scenario: the t310-claimed-course transcript, against an area that lets
+# DEPT 101 count toward both Core and Writing.
+areas: [{code: T311, kind: concentration, degree: B.A.}]
+courses:
+  - DEPT 101 2018-1 B gereqs=WRI
+  - DEPT 102 2018-3 B
+expect:
+  T311: {status: done, requirements: {Core: done, Writing: done},
+        known_issue: "AreaOfStudy.load removes courses required by course rules (DEPT 101) from every query, ignoring multicountable, so Writing is never evaluated."}

@@ -1,0 +1,186 @@
+{
+  "code": "T300",
+  "degree": "B.A.",
+  "gpa": "3.00",
+  "kind": "concentration",
+  "limit": [],
+  "max_rank": "2",
+  "name": "Fixture: query limits",
+  "ok": true,
+  "overridden": false,
+  "path": [
+    "$"
+  ],
+  "rank": "2",
+  "result": {
+    "at_most": false,
+    "audit": [],
+    "audit_status": "waived",
+    "count": 1,
+    "items": [
+      {
+        "in_gpa": true,
+        "is_audited": false,
+        "is_contract": false,
+        "is_disjoint": null,
+        "max_rank": "2",
+        "message": null,
+        "name": "Electives",
+        "overridden": false,
+        "path": [
+          "$",
+          ".count",
+          "[0]",
+          "%Electives"
+        ],
+        "rank": "2",
+        "result": {
+          "allow_claimed": false,
+          "assertions": [
+            {
+              "data-type": "course",
+              "evaluated": true,
+              "expected": "3",
+              "inserted_clbids": [],
+              "key": "count(courses)",
+              "max_rank": "1",
+              "operator": "GreaterThanOrEqualTo",
+              "path": [
+                "$",
+                ".count",
+                "[0]",
+                "%Electives",
+                ".query",
+                ".assertions",
+                "[0]",
+                ".assert"
+              ],
+              "rank": "1",
+              "resolved": "3",
+              "resolved_clbids": [
+                "DEPT 101 2018-1",
+                "DEPT 201 2019-1",
+                "DEPT 202 2019-1"
+              ],
+              "resolved_items": [
+                "DEPT 101 2018-1",
+                "DEPT 201 2019-1",
+                "DEPT 202 2019-1"
+              ],
+              "status": "done",
+              "type": "assertion",
+              "where": null
+            }
+          ],
+          "claims": [
+            {
+              "claimed_by": [
+                "$",
+                ".count",
+                "[0]",
+                "%Electives",
+                ".query"
+              ],
+              "clbid": "DEPT 101 2018-1",
+              "crsid": "DEPT 101"
+            },
+            {
+              "claimed_by": [
+                "$",
+                ".count",
+                "[0]",
+                "%Electives",
+                ".query"
+              ],
+              "clbid": "DEPT 201 2019-1",
+              "crsid": "DEPT 201"
+            },
+            {
+              "claimed_by": [
+                "$",
+                ".count",
+                "[0]",
+                "%Electives",
+                ".query"
+              ],
+              "clbid": "DEPT 202 2019-1",
+              "crsid": "DEPT 202"
+            }
+          ],
+          "data-type": "course",
+          "failures": [],
+          "include_failed": false,
+          "inserted": [],
+          "limit": [
+            {
+              "at_most": "1",
+              "at_most_what": "Courses",
+              "message": null,
+              "type": "limit",
+              "where": {
+                "expected": false,
+                "key": "is_stolaf",
+                "operator": "EqualTo",
+                "type": "predicate"
+              }
+            }
+          ],
+          "max_rank": "1",
+          "output": [
+            {
+              "key": "scedid",
+              "type": "class",
+              "value": null
+            },
+            {
+              "key": "scedid",
+              "type": "class",
+              "value": null
+            },
+            {
+              "key": "scedid",
+              "type": "class",
+              "value": null
+            }
+          ],
+          "overridden": false,
+          "path": [
+            "$",
+            ".count",
+            "[0]",
+            "%Electives",
+            ".query"
+          ],
+          "rank": "1",
+          "source": "courses",
+          "state": "result",
+          "status": "done",
+          "type": "query",
+          "where": {
+            "expected": "DEPT",
+            "key": "subject",
+            "operator": "EqualTo",
+            "type": "predicate"
+          }
+        },
+        "state": "result",
+        "status": "done",
+        "type": "requirement"
+      }
+    ],
+    "max_rank": "2",
+    "overridden": false,
+    "path": [
+      "$",
+      ".count"
+    ],
+    "rank": "2",
+    "state": "result",
+    "status": "done",
+    "type": "count"
+  },
+  "state": "result",
+  "status": "done",
+  "type": "area",
+  "version": 3
+}

@@ -1,0 +1,8 @@
+# Scenario: DEPT 102 was failed; F grades are dropped from the transcript.
+areas: [{code: T100, kind: concentration, degree: B.A.}]
+courses:
+  - DEPT 101 2018-1 A
+  - DEPT 102 2018-3 F
+  - DEPT 399 2020-1 A
+expect:
+  T100: {status: needs-more-items}

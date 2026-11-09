@@ -64,6 +64,7 @@ jobs:
           uv run python -m dp --help
           uv run python -m dp.bin.validate --help
           uv run python -m dp.bin.discover --help
+          uv run python -m dp.bin.fixture --help
 
   rust-build:
     runs-on: ubuntu-latest

@@ -1,0 +1,7 @@
+# Scenario: one course rule and a half-finished Electives is only one item.
+areas: [{code: T110, kind: concentration, degree: B.A.}]
+courses:
+  - DEPT 101 2018-1 B
+  - DEPT 201 2019-1 B
+expect:
+  T110: {status: needs-more-items}

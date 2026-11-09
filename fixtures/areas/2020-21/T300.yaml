@@ -1,0 +1,20 @@
+# Exercises: `limit` inside a query — at most one non-St. Olaf course may
+# count toward Electives.
+name: "Fixture: query limits"
+type: concentration
+code: T300
+degree: B.A.
+
+result:
+  all:
+    - requirement: Electives
+
+requirements:
+  Electives:
+    result:
+      from: courses
+      where: {subject: {$eq: DEPT}}
+      limit:
+        - at_most: 1
+          where: {is_stolaf: {$eq: false}}
+      assert: {count(courses): {$gte: 3}}

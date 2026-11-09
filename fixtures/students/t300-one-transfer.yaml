@@ -1,0 +1,8 @@
+# Scenario: one transfer course fits under the at_most: 1 limit.
+areas: [{code: T300, kind: concentration, degree: B.A.}]
+courses:
+  - DEPT 101 2018-1 B
+  - DEPT 201 2019-1 B
+  - DEPT 202 2019-1 B transfer
+expect:
+  T300: {status: done, requirements: {Electives: done}}

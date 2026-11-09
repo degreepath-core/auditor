@@ -1,0 +1,60 @@
+# Exercises: query aggregates — count(courses), sum(credits), count(terms),
+# count(subjects), average(grades), count(distinct_courses). Every query
+# uses allow_claimed so the aggregates see the same courses.
+name: "Fixture: query aggregates"
+type: concentration
+code: T200
+degree: B.A.
+
+result:
+  all:
+    - requirement: Courses
+    - requirement: Credits
+    - requirement: Terms
+    - requirement: Subjects
+    - requirement: Grades
+    - requirement: Distinct
+
+requirements:
+  Courses:
+    result:
+      from: courses
+      allow_claimed: true
+      where: {subject: {$eq: DEPT}}
+      assert: {count(courses): {$gte: 3}}
+
+  Credits:
+    result:
+      from: courses
+      allow_claimed: true
+      where: {subject: {$eq: DEPT}}
+      assert: {sum(credits): {$gte: '2.5'}}
+
+  Terms:
+    result:
+      from: courses
+      allow_claimed: true
+      where: {subject: {$eq: DEPT}}
+      assert: {count(terms): {$gte: 2}}
+
+  Subjects:
+    result:
+      from: courses
+      allow_claimed: true
+      assert: {count(subjects): {$gte: 2}}
+
+  Grades:
+    result:
+      from: courses
+      allow_claimed: true
+      where: {subject: {$eq: DEPT}}
+      all:
+        - assert: {count(courses): {$gte: 3}}
+        - assert: {average(grades): {$gte: '3.00'}}
+
+  Distinct:
+    result:
+      from: courses
+      allow_claimed: true
+      where: {subject: {$eq: DEPT}}
+      assert: {count(distinct_courses): {$gte: 3}}

@@ -1,0 +1,45 @@
+# Composite dev-data student: Imaginary Studies is complete, Pretend
+# Sciences is missing upper-level credit.
+stnum: '900901'
+catalog: 2020
+matriculation: 2019
+areas:
+  - {code: T900, kind: major, degree: B.A., dept: IMAG}
+  - {code: T901, kind: major, degree: B.A., dept: PRET}
+courses:
+  - IMAG 101 2019-1 A
+  - PRET 121 2019-1 B+
+  - PRET 121 2019-1 A lab credits=0.00
+  - IMAG 102 2019-3 A
+  - PRET 125 2019-3 B
+  - PRET 125 2019-3 A lab credits=0.00
+  - IMAG 211 2020-1 A gereqs=WRI
+  - IMAG 220 2020-1 B+
+  - IMAG 230 2020-3 B
+  - PRET 310 2020-3 B
+  - IMAG 240 2021-1 A
+  - IMAG 250 2021-1 A-
+  - IMAG 399 2022-1 A
+  - WRIT 100 2019-1 A gereqs=FYW
+  - MATH 101 2019-3 B+
+  - HIST 102 2020-1 A-
+  - LANG 103 2020-3 B
+  - PHIL 104 2021-1 A
+  - ARTS 105 2021-3 B+
+  - ECON 106 2022-1 A-
+  - BIOL 107 2022-3 C+
+  - WRIT 110 2019-1 A
+  - MATH 111 2019-3 B+
+  - HIST 112 2020-1 A-
+  - LANG 113 2020-3 B
+  - PHIL 114 2021-1 A
+  - ARTS 115 2021-3 B+
+  - ECON 116 2022-1 A-
+  - BIOL 117 2022-3 C+
+  - WRIT 120 2019-1 A
+  - MATH 121 2019-3 B+
+  - HIST 122 2020-1 A-
+  - LANG 123 2020-3 B
+expect:
+  T900: {status: done, requirements: {Common Requirements: done}}
+  T901: {status: needs-more-items, requirements: {Core: done, Laboratory: done, Upper Level: needs-more-items}}

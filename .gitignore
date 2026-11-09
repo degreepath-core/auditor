@@ -1,6 +1,8 @@
 target/
 *_cache/
 *students/
+# synthetic fixture students (no real data) are tracked; see fixtures/README.md
+!/fixtures/students/
 output/
 *.egg-info
 /venv/

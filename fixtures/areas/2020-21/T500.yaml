@@ -1,0 +1,22 @@
+# Exercises: grading edge cases — S/U during COVID (via $during_covid),
+# in-progress and registered courses, and repeated courses.
+name: "Fixture: grading edge cases"
+type: concentration
+code: T500
+degree: B.A.
+
+result:
+  all:
+    - requirement: Graded
+    - requirement: Capstone
+
+requirements:
+  Graded:
+    result:
+      from: courses
+      where: {subject: {$eq: DEPT}, level: {$lt: 300}, grade: {$gte: C, $during_covid: C-}}
+      assert: {count(courses): {$gte: 2}}
+
+  Capstone:
+    result:
+      course: DEPT 399

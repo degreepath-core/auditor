@@ -1,0 +1,22 @@
+# Exercises: student exceptions — insert, override, and block.
+name: "Fixture: exceptions"
+type: concentration
+code: T400
+degree: B.A.
+
+result:
+  all:
+    - course: DEPT 101
+    - requirement: Electives
+    - requirement: Capstone
+
+requirements:
+  Electives:
+    result:
+      from: courses
+      where: {subject: {$eq: DEPT}, level: {$eq: 200}}
+      assert: {count(courses): {$gte: 2}}
+
+  Capstone:
+    result:
+      course: DEPT 399

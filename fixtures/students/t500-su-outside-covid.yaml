@@ -1,0 +1,9 @@
+# Scenario: the same S/U course taken in fall 2019 does not satisfy the
+# grade filter.
+areas: [{code: T500, kind: concentration, degree: B.A.}]
+courses:
+  - DEPT 101 2018-1 B
+  - DEPT 201 2019-1 S su=C
+  - DEPT 399 2020-1 A
+expect:
+  T500: {status: needs-more-items, requirements: {Graded: needs-more-items, Capstone: done}}

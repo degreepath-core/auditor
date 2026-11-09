@@ -1,0 +1,11 @@
+# Scenario: counts are met but the DEPT grade average is below 3.00.
+areas: [{code: T200, kind: concentration, degree: B.A.}]
+courses:
+  - DEPT 101 2018-1 C
+  - DEPT 201 2018-3 C
+  - DEPT 301 2019-1 B
+  - OTHR 101 2019-1 B
+expect:
+  T200:
+    status: needs-more-items
+    requirements: {Courses: done, Credits: done, Terms: done, Subjects: done, Grades: needs-more-items, Distinct: done}

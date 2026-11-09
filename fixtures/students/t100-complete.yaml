@@ -1,0 +1,8 @@
+# Scenario: every course rule is matched.
+areas: [{code: T100, kind: concentration, degree: B.A.}]
+courses:
+  - DEPT 101 2018-1 A
+  - DEPT 102 2018-3 B
+  - DEPT 399 2020-1 A
+expect:
+  T100: {status: done, gpa: '3.66', requirements: {Capstone: done}}
