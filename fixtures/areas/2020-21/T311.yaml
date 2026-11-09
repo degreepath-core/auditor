@@ -1,0 +1,29 @@
+# Exercises: `multicountable` — the same shape as T310, but DEPT 101 may
+# count toward both Core and Writing.
+name: "Fixture: multicountable"
+type: concentration
+code: T311
+degree: B.A.
+
+result:
+  all:
+    - requirement: Core
+    - requirement: Writing
+
+requirements:
+  Core:
+    result:
+      both:
+        - course: DEPT 101
+        - course: DEPT 102
+
+  Writing:
+    result:
+      from: courses
+      where: {gereqs: {$eq: WRI}}
+      assert: {count(courses): {$gte: 1}}
+
+multicountable:
+  DEPT 101:
+    - [Core]
+    - [Writing]
