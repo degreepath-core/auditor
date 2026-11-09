@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-"""Usage: python3 -m dp.bin.index <query>
+"""Usage: uv run python -m dp.bin.index <query>
 
 Given a folder of student JSON files, caches their areas in a SQLite file within that folder, then executes <query> on
 that db.

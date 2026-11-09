@@ -12,20 +12,18 @@ Degreepath is a tool to perform automated, comprehensive, and fast degree audits
 
 ---
 
-Requires Python 3.15+.
+Requires Python 3.15+ and [uv](https://docs.astral.sh/uv/). uv will download Python 3.15 for you if it isn't installed.
 
 ```shell script
-$ python3 -m venv ./venv
-$ source ./venv/bin/activate  # or ./venv/bin/activate.fish
-$ pip install pip-tools
-$ pip-sync requirements.txt
-$ python3 -m dp --help
+$ uv sync                    # creates .venv with runtime + dev/test dependencies
+$ uv sync --all-groups       # ...plus the optional server and excel dependencies
+$ uv run python -m dp --help
 ```
 
 To run tests:
 
 ```shell script
-$ pytest  # or, with coverage, pytest --cov=dp
+$ uv run pytest  # or, with coverage, uv run pytest --cov=dp
 ```
 
 Other commands:
@@ -33,7 +31,7 @@ Other commands:
 ## CLI
 
 ```shell script
-$ python3 -m dp --help
+$ uv run python -m dp --help
 ```
 
 The main CLI entry point; see `--help`.
@@ -43,7 +41,7 @@ Basic usage is as follows:
 ```shell script
 # somehow get a student JSON file; documentation coming at some point
 # area.yaml can be any .yaml file in the stolaf-areas repository
-$ python3 -m dp --student <student.json> --area <area.yaml>
+$ uv run python -m dp --student <student.json> --area <area.yaml>
 ```
 
 ## Batch Job Server
@@ -54,27 +52,27 @@ Basic usage is as follows:
 
 ```shell script
 # start listening for events from postgres
-$ python3 -m dp.server &
+$ uv run python -m dp.server &
 # fetch the next batch of students to audit from SIS and queues them in postgres
-$ python3 -m dp.server.batch
+$ uv run python -m dp.server.batch
 # or, run a one-off what-if audit
-$ python3 -m dp.server.whatif --student <file> --code <code> --catalog <catalog>
+$ uv run python -m dp.server.whatif --student <file> --code <code> --catalog <catalog>
 ```
 
 The `dp.server.audit` module encapsulates driving the auditor and storing the final result into postgres.
 
 ## Misc. Scripts
 
-- You can pair up `python3 -m dp.bin.index <QUERY> | python3 -m dp.bin.batch` to run batches of audits quickly on a folder of student files.
-- `python3 -m dp.bin.discover <area-file>` will give you a list of the bucket references and static course references contained within.
-- `python3 -m dp.bin.expand <student-file>` will print (student_file, area_file) pairs to stdout, one for each area in the student.
-- `python3 -m dp.bin.print <student-file> <output-json>` will print the same output that `-m dp` generates.
-- `python3 -m dp.bin.validate <area-file>` will validate that an area specification is syntactically valid.
+- You can pair up `uv run python -m dp.bin.index <QUERY> | uv run python -m dp.bin.batch` to run batches of audits quickly on a folder of student files.
+- `uv run python -m dp.bin.discover <area-file>` will give you a list of the bucket references and static course references contained within.
+- `uv run python -m dp.bin.expand <student-file>` will print (student_file, area_file) pairs to stdout, one for each area in the student.
+- `uv run python -m dp.bin.print <student-file> <output-json>` will print the same output that `-m dp` generates.
+- `uv run python -m dp.bin.validate <area-file>` will validate that an area specification is syntactically valid.
 
 ## Fancier CLI
 
 ```shell script
-$ python3 -m dp.testbed --help
+$ uv run python -m dp.testbed --help
 ```
 
 Allows eas[ier] benchmarking of changes against the stable branch.
@@ -82,37 +80,20 @@ Allows eas[ier] benchmarking of changes against the stable branch.
 Usage:
 
 ```shell script
-$ python3 -m dp.testbed fetch
-$ python3 -m dp.testbed baseline
-$ python3 -m dp.testbed branch <name>
-$ python3 -m dp.testbed compare <name>
+$ uv run python -m dp.testbed fetch
+$ uv run python -m dp.testbed baseline
+$ uv run python -m dp.testbed branch <name>
+$ uv run python -m dp.testbed compare <name>
 ```
 
 ---
 
-You may notice that there are three `requirements*.txt` files. I split them apart so that I could install the dependencies easily.
+Dependencies are declared in `pyproject.toml` and locked in `uv.lock`. Use `uv add` / `uv remove` to change them (with `--group <name>` for the groups below), and `uv lock --upgrade` to bump everything.
 
-| filename                  | why                                          |
-| ------------------------- | -------------------------------------------- |
-| `requirements.txt`        | Common runtime dependencies                  |
-| `requirements-dev.txt`    | Development dependencies - pytest, mypy, etc |
-| `requirements-server.txt` | Database and error logging dependencies      |
-
----
-
-```
-Copyright (C) 2019  Hawken MacKay Rives
-
-This program is free software: you can redistribute it and/or modify
-it under the terms of the GNU Affero General Public License as published
-by the Free Software Foundation, either version 3 of the License, or
-(at your option) any later version.
-
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU Affero General Public License for more details.
-
-You should have received a copy of the GNU Affero General Public License
-along with this program.  If not, see <https://www.gnu.org/licenses/>.
-```
+| dependency group | why                                                    | installed by default |
+| ---------------- | ------------------------------------------------------ | -------------------- |
+| _(main)_         | Common runtime dependencies                            | yes                  |
+| `dev`            | Linting and type checking - flake8, mypy               | yes                  |
+| `test`           | pytest and plugins                                     | yes                  |
+| `server`         | Database and HTTP dependencies for `dp.server`         | no (`--group server`) |
+| `excel`          | `openpyxl`, for `dp.bin.excelify`                      | no (`--group excel`)  |

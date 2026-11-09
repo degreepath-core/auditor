@@ -1,4 +1,0 @@
-pytest-benchmark>=5.3,<6
-pytest-cov>=7.1,<8
-pytest-tldr>=0.2.5,<0.3
-pytest>=9.2,<10
