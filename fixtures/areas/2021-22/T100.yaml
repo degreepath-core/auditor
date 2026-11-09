@@ -1,0 +1,19 @@
+# Exercises: catalog-year resolution. This 2021-22 revision of T100 adds
+# DEPT 103; students with catalog 2021+ get this file, earlier students get
+# the 2020-21 file.
+name: "Fixture: course rules (2021-22 revision)"
+type: concentration
+code: T100
+degree: B.A.
+
+result:
+  all:
+    - course: DEPT 101
+    - course: DEPT 102
+    - course: DEPT 103
+    - requirement: Capstone
+
+requirements:
+  Capstone:
+    result:
+      course: DEPT 399

@@ -1,0 +1,236 @@
+{
+  "code": "T100",
+  "degree": "B.A.",
+  "gpa": "3.66",
+  "kind": "concentration",
+  "limit": [],
+  "max_rank": "5",
+  "name": "Fixture: course rules (2021-22 revision)",
+  "ok": false,
+  "overridden": false,
+  "path": [
+    "$"
+  ],
+  "rank": "4",
+  "result": {
+    "at_most": false,
+    "audit": [],
+    "audit_status": "waived",
+    "count": 4,
+    "items": [
+      {
+        "allow_claimed": false,
+        "ap": null,
+        "auto_waived": false,
+        "claims": [
+          {
+            "claimed_by": [
+              "$",
+              ".count",
+              "[0]",
+              "*DEPT 101"
+            ],
+            "clbid": "DEPT 101 2019-1",
+            "crsid": "DEPT 101"
+          }
+        ],
+        "clbid": null,
+        "course": "DEPT 101",
+        "crsid": null,
+        "excluded_clbids": [],
+        "forced": false,
+        "from_claimed": false,
+        "grade": null,
+        "grade_option": null,
+        "hidden": false,
+        "inserted": false,
+        "institution": null,
+        "matched_scedid": null,
+        "max_rank": "1",
+        "name": null,
+        "optional": false,
+        "overridden": false,
+        "path": [
+          "$",
+          ".count",
+          "[0]",
+          "*DEPT 101"
+        ],
+        "rank": "1",
+        "section": null,
+        "state": "result",
+        "status": "done",
+        "sub_type": null,
+        "term": null,
+        "type": "course",
+        "year": null
+      },
+      {
+        "allow_claimed": false,
+        "ap": null,
+        "auto_waived": false,
+        "claims": [
+          {
+            "claimed_by": [
+              "$",
+              ".count",
+              "[1]",
+              "*DEPT 102"
+            ],
+            "clbid": "DEPT 102 2019-3",
+            "crsid": "DEPT 102"
+          }
+        ],
+        "clbid": null,
+        "course": "DEPT 102",
+        "crsid": null,
+        "excluded_clbids": [],
+        "forced": false,
+        "from_claimed": false,
+        "grade": null,
+        "grade_option": null,
+        "hidden": false,
+        "inserted": false,
+        "institution": null,
+        "matched_scedid": null,
+        "max_rank": "1",
+        "name": null,
+        "optional": false,
+        "overridden": false,
+        "path": [
+          "$",
+          ".count",
+          "[1]",
+          "*DEPT 102"
+        ],
+        "rank": "1",
+        "section": null,
+        "state": "result",
+        "status": "done",
+        "sub_type": null,
+        "term": null,
+        "type": "course",
+        "year": null
+      },
+      {
+        "allow_claimed": false,
+        "ap": null,
+        "auto_waived": false,
+        "claims": [],
+        "clbid": null,
+        "course": "DEPT 103",
+        "crsid": null,
+        "excluded_clbids": [],
+        "forced": false,
+        "from_claimed": false,
+        "grade": null,
+        "grade_option": null,
+        "hidden": false,
+        "inserted": false,
+        "institution": null,
+        "matched_scedid": null,
+        "max_rank": "1",
+        "name": null,
+        "optional": false,
+        "overridden": false,
+        "path": [
+          "$",
+          ".count",
+          "[2]",
+          "*DEPT 103"
+        ],
+        "rank": "0",
+        "section": null,
+        "state": "rule",
+        "status": "empty",
+        "sub_type": null,
+        "term": null,
+        "type": "course",
+        "year": null
+      },
+      {
+        "in_gpa": true,
+        "is_audited": false,
+        "is_contract": false,
+        "is_disjoint": null,
+        "max_rank": "2",
+        "message": null,
+        "name": "Capstone",
+        "overridden": false,
+        "path": [
+          "$",
+          ".count",
+          "[3]",
+          "%Capstone"
+        ],
+        "rank": "2",
+        "result": {
+          "allow_claimed": false,
+          "ap": null,
+          "auto_waived": false,
+          "claims": [
+            {
+              "claimed_by": [
+                "$",
+                ".count",
+                "[3]",
+                "%Capstone",
+                "*DEPT 399"
+              ],
+              "clbid": "DEPT 399 2021-1",
+              "crsid": "DEPT 399"
+            }
+          ],
+          "clbid": null,
+          "course": "DEPT 399",
+          "crsid": null,
+          "excluded_clbids": [],
+          "forced": false,
+          "from_claimed": false,
+          "grade": null,
+          "grade_option": null,
+          "hidden": false,
+          "inserted": false,
+          "institution": null,
+          "matched_scedid": null,
+          "max_rank": "1",
+          "name": null,
+          "optional": false,
+          "overridden": false,
+          "path": [
+            "$",
+            ".count",
+            "[3]",
+            "%Capstone",
+            "*DEPT 399"
+          ],
+          "rank": "1",
+          "section": null,
+          "state": "result",
+          "status": "done",
+          "sub_type": null,
+          "term": null,
+          "type": "course",
+          "year": null
+        },
+        "state": "result",
+        "status": "done",
+        "type": "requirement"
+      }
+    ],
+    "max_rank": "5",
+    "overridden": false,
+    "path": [
+      "$",
+      ".count"
+    ],
+    "rank": "4",
+    "state": "result",
+    "status": "needs-more-items",
+    "type": "count"
+  },
+  "state": "result",
+  "status": "needs-more-items",
+  "type": "area",
+  "version": 3
+}
