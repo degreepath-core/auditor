@@ -1,19 +1,4 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["config:recommended"],
-  "timezone": "UTC",
-  "prConcurrentLimit": 20,
-  "prHourlyLimit": 0,
-  "packageRules": [
-    {
-      "description": "Python dependencies (uv): daily, after 11:00 UTC, as Dependabot did",
-      "matchManagers": ["pep621"],
-      "schedule": ["after 11am"]
-    },
-    {
-      "description": "Rust dependencies (cargo): weekly, as Dependabot did",
-      "matchManagers": ["cargo"],
-      "schedule": ["* * * * 1"]
-    }
-  ]
+  "extends": ["config:best-practices"]
 }
