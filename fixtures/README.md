@@ -126,7 +126,14 @@ python3 -m dp --student /tmp/student.json --area fixtures/areas/2020-21/T901.yam
 python3 -m dp.bin.fixture expand-all --out build/fixture-students
 ```
 
-Anything that takes an areas directory (for example `dp.bin.batch` or the server's area root) can use `fixtures/areas`.
+To run the whole corpus through `dp.bin.batch`, which reads `<stnum>.json` files and takes `stnum catalog code` lines on stdin, use `--by-stnum`:
+
+```shell script
+python3 -m dp.bin.fixture expand-all --by-stnum --out build/fixture-students \
+    | python3 -m dp.bin.batch --dir build/fixture-students --areas-dir fixtures/areas
+```
+
+Anything else that takes an areas directory (such as the server's area root) can use `fixtures/areas`.
 
 ## Feature index
 

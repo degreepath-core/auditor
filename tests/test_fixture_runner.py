@@ -85,3 +85,25 @@ def test_verify_reports_a_broken_fixture_as_a_fixture_error_not_a_mismatch(root:
     with pytest.raises(FixtureError, match="requirement\\(s\\) \\['Capstnoe'\\] not found") as info:
         verify_fixture(fixture, 'T100', areas_root=root / 'areas')
     assert not isinstance(info.value, ExpectationMismatch)
+
+
+def test_expand_all_by_stnum_pipes_into_batch(root: pathlib.Path, tmp_path: pathlib.Path):
+    import subprocess
+    import sys
+
+    out = tmp_path / 'out'
+    expanded = subprocess.run(
+        [sys.executable, '-m', 'dp.bin.fixture', '--root', str(root), 'expand-all', '--by-stnum', '--out', str(out)],
+        stdout=subprocess.PIPE, stderr=subprocess.PIPE, universal_newlines=True, check=True,
+    )
+    fixture = load_fixture(root / 'students' / 't100-tiny.yaml', areas_root=root / 'areas')
+    stnum = fixture.student['stnum']
+    assert expanded.stdout == f'{stnum} 2020 T100\n'
+    assert (out / f'{stnum}.json').exists()
+
+    batch = subprocess.run(
+        [sys.executable, '-m', 'dp.bin.batch', '--dir', str(out), '--areas-dir', str(root / 'areas')],
+        input=expanded.stdout, stdout=subprocess.PIPE, stderr=subprocess.PIPE, universal_newlines=True,
+    )
+    assert batch.returncode == 0, batch.stderr
+    assert "'Fixture: tiny' audit status: done" in batch.stdout

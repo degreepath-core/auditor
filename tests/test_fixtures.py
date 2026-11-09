@@ -120,3 +120,16 @@ def test_known_issues_only_excuse_expectation_mismatches():
     for mark in xfails:
         assert mark.kwargs.get('raises') is ExpectationMismatch
         assert mark.kwargs.get('strict') is True
+
+
+def test_fixture_stnums_are_unique():
+    # `expand-all --by-stnum` names files by stnum, so two fixtures sharing
+    # one would silently overwrite each other.
+    seen = {}
+    for path in discover_students(FIXTURES_ROOT):
+        try:
+            stnum = load_fixture(path, areas_root=AREAS_ROOT).student['stnum']
+        except FixtureError:
+            continue
+        assert stnum not in seen, f'{path.stem} and {seen[stnum]} share stnum {stnum}; set stnum explicitly in one of them'
+        seen[stnum] = path.stem
