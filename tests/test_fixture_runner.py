@@ -4,7 +4,9 @@ import pathlib
 import pytest
 
 from dp.fixtures.errors import FixtureError
-from dp.fixtures.runner import audit_fixture, discover_students, load_fixture, render_snapshot, snapshot_path
+from dp.fixtures.runner import (
+    ExpectationMismatch, audit_fixture, discover_students, load_fixture, render_snapshot, snapshot_path, verify_fixture,
+)
 
 AREA = '''
 name: "Fixture: tiny"
@@ -65,3 +67,21 @@ def test_unreadable_and_invalid_files(root: pathlib.Path):
 
 def test_snapshot_path(root: pathlib.Path):
     assert snapshot_path(root, 't100-tiny', 'T100') == root / 'snapshots' / 't100-tiny.T100.json'
+
+
+def test_verify_reports_a_wrong_outcome_as_a_mismatch(root: pathlib.Path):
+    (root / 'students' / 't100-tiny.yaml').write_text(STUDENT.replace('{status: done}', '{status: empty}'))
+    fixture = load_fixture(root / 'students' / 't100-tiny.yaml', areas_root=root / 'areas')
+    with pytest.raises(ExpectationMismatch, match="status: expected 'empty', got 'done'"):
+        verify_fixture(fixture, 'T100', areas_root=root / 'areas')
+
+
+def test_verify_reports_a_broken_fixture_as_a_fixture_error_not_a_mismatch(root: pathlib.Path):
+    # A typo'd requirement name must not look like the known engine bug a
+    # strict xfail is waiting for; it has to fail the test outright.
+    typo = STUDENT.replace('{status: done}', "{status: empty, requirements: {Capstnoe: done}, known_issue: 'x'}")
+    (root / 'students' / 't100-tiny.yaml').write_text(typo)
+    fixture = load_fixture(root / 'students' / 't100-tiny.yaml', areas_root=root / 'areas')
+    with pytest.raises(FixtureError, match="requirement\\(s\\) \\['Capstnoe'\\] not found") as info:
+        verify_fixture(fixture, 'T100', areas_root=root / 'areas')
+    assert not isinstance(info.value, ExpectationMismatch)

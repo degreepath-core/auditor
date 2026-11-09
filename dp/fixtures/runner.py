@@ -10,11 +10,19 @@ import yaml
 from ..audit import Arguments, NoAuditsCompletedMsg, ResultMsg
 from ..run import find_area, load_area, run
 from .errors import FixtureError
-from .expect import AreaExpectation, parse_expectations
+from .expect import AreaExpectation, check_expectation, parse_expectations, requirement_statuses
 from .student import expand_student
 
 REPO_ROOT = pathlib.Path(__file__).resolve().parents[2]
 FIXTURES_ROOT = REPO_ROOT / 'fixtures'
+
+
+class ExpectationMismatch(AssertionError):
+    """The audit ran, but its outcome differs from the fixture's expectation.
+
+    This is the only failure a `known_issue` marker excuses; a broken fixture
+    (missing area, misspelled requirement, crash) must still fail outright.
+    """
 
 
 @attr.s(frozen=True, auto_attribs=True, kw_only=True)
@@ -70,6 +78,27 @@ def audit_fixture(fixture: Fixture, code: str, *, areas_root: pathlib.Path) -> D
         raise FixtureError(f"{fixture.id}[{code}]: the audit produced no result")
 
     return final.result.to_dict()
+
+
+def verify_fixture(fixture: Fixture, code: str, *, areas_root: pathlib.Path) -> Dict[str, Any]:
+    """Audit one area and check its expectation; return the result's to_dict().
+
+    Raises FixtureError when the fixture itself is broken, and
+    ExpectationMismatch when the engine's outcome differs from the expectation.
+    """
+    expectation = fixture.expectations[code]
+    result = audit_fixture(fixture, code, areas_root=areas_root)
+
+    actual = requirement_statuses(result)
+    missing = sorted(name for name in expectation.requirements if name not in actual)
+    if missing:
+        raise FixtureError(f"{fixture.id}[{code}]: requirement(s) {missing} not found; available: {sorted(actual)}")
+
+    problems = check_expectation(expectation, result)
+    if problems:
+        raise ExpectationMismatch(f"{fixture.path}: " + '; '.join(problems))
+
+    return result
 
 
 def snapshot_path(root: pathlib.Path, fixture_id: str, code: str) -> pathlib.Path:

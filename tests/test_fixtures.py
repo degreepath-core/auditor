@@ -12,8 +12,9 @@ import yaml
 
 from dp import AreaOfStudy, Constants
 from dp.fixtures.errors import FixtureError
-from dp.fixtures.expect import check_expectation
-from dp.fixtures.runner import FIXTURES_ROOT, audit_fixture, discover_students, load_fixture, render_snapshot, snapshot_path
+from dp.fixtures.runner import (
+    FIXTURES_ROOT, ExpectationMismatch, discover_students, load_fixture, render_snapshot, snapshot_path, verify_fixture,
+)
 
 AREAS_ROOT = FIXTURES_ROOT / 'areas'
 SNAPSHOTS_ROOT = FIXTURES_ROOT / 'snapshots'
@@ -35,7 +36,7 @@ def _collect():
         for code, expectation in sorted(fixture.expectations.items()):
             marks = []
             if expectation.known_issue:
-                marks.append(pytest.mark.xfail(reason=expectation.known_issue, strict=True))
+                marks.append(pytest.mark.xfail(reason=expectation.known_issue, strict=True, raises=ExpectationMismatch))
             else:
                 snapshot_names.add(snapshot_path(FIXTURES_ROOT, fixture.id, code).name)
             cases.append(pytest.param(fixture, code, id=f'{fixture.id}[{code}]', marks=marks))
@@ -72,10 +73,7 @@ def test_fixture_area_is_valid(path):
 @pytest.mark.parametrize('fixture,code', CASES)
 def test_fixture(fixture, code, request):
     expectation = fixture.expectations[code]
-    result = audit_fixture(fixture, code, areas_root=AREAS_ROOT)
-
-    problems = check_expectation(expectation, result)
-    assert not problems, f'{fixture.path}: ' + '; '.join(problems)
+    result = verify_fixture(fixture, code, areas_root=AREAS_ROOT)
 
     if expectation.known_issue:
         return
@@ -114,3 +112,11 @@ def test_no_orphaned_snapshots(request):
         return
 
     assert not orphans, f'snapshots with no matching fixture: {[p.name for p in orphans]}; {UPDATE_HINT}'
+
+
+def test_known_issues_only_excuse_expectation_mismatches():
+    xfails = [m for case in CASES for m in case.marks if m.name == 'xfail']
+    assert xfails, 'expected at least one known_issue fixture'
+    for mark in xfails:
+        assert mark.kwargs.get('raises') is ExpectationMismatch
+        assert mark.kwargs.get('strict') is True
