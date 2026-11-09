@@ -24,7 +24,7 @@ jobs:
           enable-cache: true
 
       - name: Install dependencies
-        run: uv sync --locked --group server
+        run: uv sync --locked
 
       - name: Lint with flake8
         run: |

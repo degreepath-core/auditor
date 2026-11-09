@@ -16,7 +16,7 @@ Requires Python 3.15+ and [uv](https://docs.astral.sh/uv/). uv will download Pyt
 
 ```shell script
 $ uv sync                    # creates .venv with runtime + dev/test dependencies
-$ uv sync --all-groups       # ...plus the optional server and excel dependencies
+$ uv sync --all-groups       # ...plus the optional excel dependencies
 $ uv run python -m dp --help
 ```
 
@@ -95,5 +95,5 @@ Dependencies are declared in `pyproject.toml` and locked in `uv.lock`. Use `uv a
 | _(main)_         | Common runtime dependencies                            | yes                  |
 | `dev`            | Linting and type checking - flake8, mypy               | yes                  |
 | `test`           | pytest and plugins                                     | yes                  |
-| `server`         | Database and HTTP dependencies for `dp.server`         | no (`--group server`) |
+| `server`         | Database and HTTP dependencies for `dp.server`         | via `dev`             |
 | `excel`          | `openpyxl`, for `dp.bin.excelify`                      | no (`--group excel`)  |

@@ -123,7 +123,9 @@ dependencies = [
 dev = [
     { name = "flake8" },
     { name = "mypy" },
+    { name = "psycopg2-binary" },
     { name = "types-pyyaml" },
+    { name = "urllib3" },
 ]
 excel = [
     { name = "openpyxl" },
@@ -150,7 +152,9 @@ requires-dist = [
 dev = [
     { name = "flake8", specifier = ">=7.5,<8" },
     { name = "mypy", specifier = ">=2.4,<3" },
+    { name = "psycopg2-binary", specifier = ">=2.9.13,<3" },
     { name = "types-pyyaml", specifier = ">=6.0.12" },
+    { name = "urllib3", specifier = ">=2.8,<3" },
 ]
 excel = [{ name = "openpyxl", specifier = ">=3.1.5,<4" }]
 server = [

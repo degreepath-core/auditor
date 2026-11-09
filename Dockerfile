@@ -29,7 +29,7 @@ ENV AREA_ROOT /opt/areas
 
 RUN touch .env
 
-COPY pyproject.toml uv.lock .python-version ./
+COPY pyproject.toml uv.lock ./
 
 RUN uv sync --locked --no-default-groups --group server
 
