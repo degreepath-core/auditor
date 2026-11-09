@@ -1,0 +1,10 @@
+# Scenario: the same transcript as t100-complete, but catalog 2021 selects
+# the 2021-22 revision of T100, which also requires DEPT 103.
+catalog: 2021
+areas: [{code: T100, kind: concentration, degree: B.A.}]
+courses:
+  - DEPT 101 2019-1 A
+  - DEPT 102 2019-3 B
+  - DEPT 399 2021-1 A
+expect:
+  T100: {status: needs-more-items, requirements: {Capstone: done}}

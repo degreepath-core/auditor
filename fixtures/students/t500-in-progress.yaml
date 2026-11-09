@@ -1,0 +1,9 @@
+# Scenario: DEPT 399 is in progress during the current term.
+current_term: '20203'
+areas: [{code: T500, kind: concentration, degree: B.A.}]
+courses:
+  - DEPT 101 2018-1 B
+  - DEPT 201 2019-1 B
+  - DEPT 399 2020-3 IP
+expect:
+  T500: {status: pending-current, requirements: {Graded: done, Capstone: pending-current}}

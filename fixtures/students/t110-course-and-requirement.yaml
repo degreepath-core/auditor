@@ -1,0 +1,8 @@
+# Scenario: one course rule plus the Electives requirement make two.
+areas: [{code: T110, kind: concentration, degree: B.A.}]
+courses:
+  - DEPT 101 2018-1 B
+  - DEPT 201 2019-1 B
+  - DEPT 202 2019-3 B
+expect:
+  T110: {status: done, requirements: {Electives: done}}

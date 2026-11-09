@@ -1,0 +1,10 @@
+# Scenario: three DEPT courses in one term and no other subject.
+areas: [{code: T200, kind: concentration, degree: B.A.}]
+courses:
+  - DEPT 101 2018-1 A
+  - DEPT 201 2018-1 A
+  - DEPT 301 2018-1 A
+expect:
+  T200:
+    status: needs-more-items
+    requirements: {Courses: done, Terms: needs-more-items, Subjects: needs-more-items}

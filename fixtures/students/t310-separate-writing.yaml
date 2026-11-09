@@ -1,0 +1,9 @@
+# Scenario: a second WRI course gives Writing something unclaimed.
+areas: [{code: T310, kind: concentration, degree: B.A.}]
+courses:
+  - DEPT 101 2018-1 B gereqs=WRI
+  - DEPT 102 2018-3 B
+  - OTHR 120 2019-1 B gereqs=WRI
+expect:
+  T310: {status: done, requirements: {Core: done, Writing: done, Survey: done},
+        known_issue: "AreaOfStudy.load removes courses required by course rules (DEPT 101, DEPT 102) from every query, ignoring allow_claimed, so Survey is never evaluated."}

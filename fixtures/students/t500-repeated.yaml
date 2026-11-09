@@ -1,0 +1,10 @@
+# Scenario: DEPT 201 was taken twice; the earlier attempt is marked
+# repeated-later and drops out of both the audit and the GPA.
+areas: [{code: T500, kind: concentration, degree: B.A.}]
+courses:
+  - DEPT 101 2018-1 B
+  - DEPT 201 2018-3 D repeated-later
+  - DEPT 201 2019-1 A repeat
+  - DEPT 399 2020-1 A
+expect:
+  T500: {status: done, gpa: '3.66', requirements: {Graded: done}}

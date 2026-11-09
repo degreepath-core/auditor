@@ -1,0 +1,8 @@
+# Scenario: DEPT 101 is the only WRI course, but Core claims it first.
+areas: [{code: T310, kind: concentration, degree: B.A.}]
+courses:
+  - DEPT 101 2018-1 B gereqs=WRI
+  - DEPT 102 2018-3 B
+expect:
+  T310: {status: needs-more-items, requirements: {Core: done, Writing: empty, Survey: done},
+        known_issue: "AreaOfStudy.load removes courses required by course rules (DEPT 101, DEPT 102) from every query, ignoring allow_claimed, so Survey is never evaluated."}

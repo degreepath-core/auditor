@@ -1,0 +1,7 @@
+# Scenario: the two course rules satisfy count: 2 without Electives.
+areas: [{code: T110, kind: concentration, degree: B.A.}]
+courses:
+  - DEPT 101 2018-1 B
+  - DEPT 102 2018-3 B
+expect:
+  T110: {status: done}

@@ -1,0 +1,8 @@
+# Scenario: the limit admits only one of the two transfer courses.
+areas: [{code: T300, kind: concentration, degree: B.A.}]
+courses:
+  - DEPT 101 2018-1 B
+  - DEPT 201 2019-1 B transfer
+  - DEPT 202 2019-3 B transfer inst=CARL
+expect:
+  T300: {status: needs-more-items, requirements: {Electives: needs-more-items}}

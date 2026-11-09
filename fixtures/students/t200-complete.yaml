@@ -1,0 +1,12 @@
+# Scenario: every aggregate threshold is met; DEPT 201 is a half credit.
+areas: [{code: T200, kind: concentration, degree: B.A.}]
+courses:
+  - DEPT 101 2018-1 A
+  - DEPT 201 2018-3 B credits=0.50
+  - DEPT 301 2019-1 A
+  - DEPT 302 2019-1 A
+  - OTHR 101 2019-1 B
+expect:
+  T200:
+    status: done
+    requirements: {Courses: done, Credits: done, Terms: done, Subjects: done, Grades: done, Distinct: done}

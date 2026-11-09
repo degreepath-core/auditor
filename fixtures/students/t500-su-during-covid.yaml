@@ -1,0 +1,9 @@
+# Scenario: DEPT 201 was taken S/U in spring 2020 (2019-3) with an
+# underlying C; $during_covid accepts it.
+areas: [{code: T500, kind: concentration, degree: B.A.}]
+courses:
+  - DEPT 101 2018-1 B
+  - DEPT 201 2019-3 S su=C
+  - DEPT 399 2020-1 A
+expect:
+  T500: {status: done, requirements: {Graded: done, Capstone: done}}
