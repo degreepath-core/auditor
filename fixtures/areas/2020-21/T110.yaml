@@ -1,0 +1,20 @@
+# Exercises: `count`/`of` — N of a list mixing course rules and a
+# requirement rule.
+name: "Fixture: count/of"
+type: concentration
+code: T110
+degree: B.A.
+
+result:
+  count: 2
+  of:
+    - course: DEPT 101
+    - course: DEPT 102
+    - requirement: Electives
+
+requirements:
+  Electives:
+    result:
+      from: courses
+      where: {subject: {$eq: DEPT}, level: {$gte: 200}}
+      assert: {count(courses): {$gte: 2}}

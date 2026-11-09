@@ -1,0 +1,31 @@
+# Exercises: the boolean combinators `all`, `any`, `both`, and `either`.
+name: "Fixture: boolean combinators"
+type: concentration
+code: T101
+degree: B.A.
+
+result:
+  all:
+    - requirement: Either
+    - requirement: Both
+    - requirement: Any
+
+requirements:
+  Either:
+    result:
+      either:
+        - course: DEPT 110
+        - course: DEPT 111
+
+  Both:
+    result:
+      both:
+        - course: DEPT 120
+        - course: DEPT 121
+
+  Any:
+    result:
+      any:
+        - course: DEPT 130
+        - course: DEPT 131
+        - course: DEPT 132
