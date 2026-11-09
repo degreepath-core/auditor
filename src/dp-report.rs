@@ -1,19 +1,19 @@
-use clap::Clap;
+use clap::{Args, Parser, Subcommand};
 use reports::database::{collect_area_codes, connect, record_report};
 use reports::students::fetch_records;
 use reports::{run_report, ReportType};
 
-const AUTHOR: &'static str = "Hawken MacKay Rives <degreepath@hawkrives.fastmail.fm>";
+const AUTHOR: &str = "Hawken MacKay Rives <degreepath@hawkrives.fastmail.fm>";
 /// This doc string acts as a help message when the user runs '--help'
 /// as do all doc strings on fields
-#[derive(Clap)]
-#[clap(version = "1.0", author = AUTHOR)]
+#[derive(Parser)]
+#[command(version = "1.0", author = AUTHOR)]
 struct Opts {
-    #[clap(subcommand)]
+    #[command(subcommand)]
     action: SubCommand,
 }
 
-#[derive(Clap)]
+#[derive(Subcommand)]
 enum SubCommand {
     Report(SubCmd),
     Summarize(SubCmd),
@@ -21,20 +21,20 @@ enum SubCommand {
 }
 
 /// A subcommand for controlling testing
-#[derive(Clap)]
+#[derive(Args)]
 struct SubCmd {
     /// Which area of study to look up
     area_code: String,
     /// Stores the data into Postgres
-    #[clap(long)]
+    #[arg(long)]
     to_database: bool,
 }
 
 /// A subcommand for controlling testing
-#[derive(Clap)]
+#[derive(Args)]
 struct BatchSubCmd {
     /// Stores the data into Postgres
-    #[clap(long)]
+    #[arg(long)]
     to_database: bool,
 }
 

@@ -1,0 +1,42 @@
+[project]
+name = "degreepath"
+version = "0.0.0"
+description = "Degree audit engine"
+readme = "README.md"
+license = "AGPL-3.0-only"
+requires-python = ">=3.15"
+dependencies = [
+    "attrs>=26.1,<27",
+    "pyyaml>=6.0.3,<7",
+    "tqdm>=4.70,<5",
+]
+
+[dependency-groups]
+# installed by default with `uv sync` / `uv run`
+dev = [
+    # mypy checks dp/server, so it needs the server dependencies installed
+    { include-group = "server" },
+    "flake8>=7.5,<8",
+    "mypy>=2.4,<3",
+    "types-PyYAML>=6.0.12",
+]
+test = [
+    "pytest>=9.2,<10",
+    "pytest-benchmark>=5.3,<6",
+    "pytest-cov>=7.1,<8",
+    "pytest-tldr>=0.2.5,<0.3",
+]
+# opt-in with `--group server` / `--group excel` (server is also pulled in by dev)
+server = [
+    "psycopg2-binary>=2.9.13,<3",
+    "urllib3>=2.8,<3",
+]
+excel = [
+    "openpyxl>=3.1.5,<4",
+]
+
+[tool.uv]
+# This is an application run with `python -m dp`, not a distributable package.
+package = false
+default-groups = ["dev", "test"]
+required-version = ">=0.13"

@@ -17,4 +17,4 @@ def print_invocation(args: argparse.Namespace) -> None:
     area_root = pathlib.Path(root_env)
     area_path = area_root / catalog / f"{code}.yaml"
 
-    print(f'python3 -m dp --student {stnum}.json --area {area_path}')
+    print(f'uv run python -m dp --student {stnum}.json --area {area_path}')

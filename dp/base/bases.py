@@ -215,7 +215,7 @@ def compare_path_tuples__lt(path_a: Tuple[str, ...], path_b: Tuple[str, ...]) ->
         if b and b[0] == '[':
             b = int(b[1:-1])
 
-        if type(a) == type(b):
+        if type(a) is type(b):
             if a == b:
                 continue
 
@@ -224,7 +224,7 @@ def compare_path_tuples__lt(path_a: Tuple[str, ...], path_b: Tuple[str, ...]) ->
             else:
                 return False
 
-        elif type(a) == int:
+        elif type(a) is int:
             return True
 
         else:

@@ -67,7 +67,7 @@ def load_student(filename: str) -> Dict:
 
 
 def find_area(root: pathlib.Path, area_catalog: int, area_code: str) -> Optional[pathlib.Path]:
-    max_folder = f"{area_catalog}-{str(area_catalog+1)[2:]}"
+    max_folder = f"{area_catalog}-{str(area_catalog + 1)[2:]}"
     logger.debug('looking for files beneath %s that are older than %s', root, max_folder)
 
     matching_files = [

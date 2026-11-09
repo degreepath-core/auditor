@@ -87,7 +87,7 @@ class PredicateExpressionCompoundAnd:
     def load(data: Mapping, *, ctx: 'RequirementContext') -> 'PredicateExpressionCompoundAnd':
         # ensure that the data looks like {$and: []}, with no extra keys
         assert len(data.keys()) == 1
-        assert type(data['$and']) == list
+        assert type(data['$and']) is list
         clauses = tuple(load_predicate_expression(e, ctx=ctx) for e in data['$and'])
         return PredicateExpressionCompoundAnd(expressions=clauses, result=all(e.result for e in clauses))
 
@@ -118,7 +118,7 @@ class PredicateExpressionCompoundOr:
     def load(data: Mapping, *, ctx: 'RequirementContext') -> 'PredicateExpressionCompoundOr':
         # ensure that the data looks like {$or: []}, with no extra keys
         assert len(data.keys()) == 1
-        assert type(data['$or']) == list
+        assert type(data['$or']) is list
         clauses = tuple(load_predicate_expression(e, ctx=ctx) for e in data['$or'])
         return PredicateExpressionCompoundOr(expressions=clauses, result=any(e.result for e in clauses))
 
@@ -275,7 +275,7 @@ class DynamicPredicateExpressionCompoundAnd:
     def load(data: Mapping, *, ctx: 'RequirementContext') -> 'DynamicPredicateExpressionCompoundAnd':
         # ensure that the data looks like {$and: []}, with no extra keys
         assert len(data.keys()) == 1
-        assert type(data['$and']) == list
+        assert type(data['$and']) is list
         clauses = tuple(load_dynamic_predicate_expression(e, ctx=ctx) for e in data['$and'])
         return DynamicPredicateExpressionCompoundAnd(expressions=clauses, result=None)
 
@@ -306,7 +306,7 @@ class DynamicPredicateExpressionCompoundOr:
     def load(data: Mapping, *, ctx: 'RequirementContext') -> 'DynamicPredicateExpressionCompoundOr':
         # ensure that the data looks like {$or: []}, with no extra keys
         assert len(data.keys()) == 1
-        assert type(data['$or']) == list
+        assert type(data['$or']) is list
         clauses = tuple(load_dynamic_predicate_expression(e, ctx=ctx) for e in data['$or'])
         return DynamicPredicateExpressionCompoundOr(expressions=clauses, result=None)
 

@@ -52,7 +52,7 @@ def main() -> int:  # noqa: C901
             return 1
 
         if cli_args.invocation:
-            print(f"python3 dp.py --student '{student_file}' --area '{area_file}'")
+            print(f"uv run python -m dp --student '{student_file}' --area '{area_file}'")
             continue
 
         student = load_student(student_file)

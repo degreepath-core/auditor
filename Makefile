@@ -4,49 +4,40 @@ lint: flake mypy test
 check: lint
 
 flake:
-	flake8 --show-source --statistics dp/
+	uv run flake8 --show-source --statistics dp/
 
 mypy:
-	mypy --pretty --show-error-codes dp/
+	uv run mypy --pretty --show-error-codes dp/
 
 test:
-	pytest tests/ dp/
+	uv run pytest tests/ dp/
 
 watch:
-	ptw
+	uv run --with pytest-watch ptw
 
 push: lint
 	git push
 
 validate:
-	python3 -m dp.bin.validate ../degreepath-areas/*/**.yaml --break
+	uv run python -m dp.bin.validate ../degreepath-areas/*/**.yaml --break
 
 profile:
 	echo 'use pyinstrument'
 	echo 'or use py-spy'
 
 nuitka:
-	python3 -m nuitka --standalone --follow-imports --plugin-enable=pylint-warnings --python-flag=no_site --warn-unusual-code --warn-implicit-exceptions dp/__main__.py
+	uv run --with nuitka python -m nuitka --standalone --follow-imports --plugin-enable=pylint-warnings --python-flag=no_site --warn-unusual-code --warn-implicit-exceptions dp/__main__.py
 
-requirements: requirements.txt requirements-dev.txt requirements-test.txt requirements-server.txt requirements-excel.txt
-	pip-sync $^
+sync:
+	uv sync --all-groups
 
-requirements.txt: requirements.in
-	pip-compile --generate-hashes $<
+lock:
+	uv lock
 
-requirements-dev.txt: requirements-dev.in
-	pip-compile --generate-hashes $<
+upgrade:
+	uv lock --upgrade
 
-requirements-test.txt: requirements-test.in
-	pip-compile --generate-hashes $<
-
-requirements-server.txt: requirements-server.in
-	pip-compile --generate-hashes $<
-
-requirements-excel.txt: requirements-excel.in
-	pip-compile --generate-hashes $<
-
-.PHONY: requirements nuitka profile validate push watch test mypy lint flake check all
+.PHONY: sync lock upgrade nuitka profile validate push watch test mypy lint flake check all
 
 ###
 

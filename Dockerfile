@@ -1,4 +1,4 @@
-FROM rust:1.50-buster AS builder
+FROM rust:1.99.1-trixie AS builder
 
 WORKDIR /usr/src/reports
 
@@ -8,11 +8,19 @@ COPY ./reports ./reports
 COPY ./src ./src
 COPY ./formatter ./formatter
 
-RUN cargo build --release --bin dp-report
+RUN cargo build --locked --release --bin dp-report
 
-FROM python:3.9-slim-buster
+FROM python:3.15-slim-trixie
+
+COPY --from=ghcr.io/astral-sh/uv:0.13.7 /uv /uvx /bin/
 
 WORKDIR /usr/src/app
+
+# Use the image's Python rather than downloading one, and keep the venv
+# self-contained (no hardlinks into a cache that isn't in the image).
+ENV UV_PYTHON_DOWNLOADS=never \
+	UV_LINK_MODE=copy \
+	UV_NO_CACHE=1
 
 ENV PGPASSFILE /opt/.pgpass
 
@@ -21,13 +29,9 @@ ENV AREA_ROOT /opt/areas
 
 RUN touch .env
 
-COPY requirements.txt requirements-server.txt ./
+COPY pyproject.toml uv.lock ./
 
-RUN pip install --no-cache-dir \
-	-r requirements.txt \
-	-r requirements-server.txt \
-	&& find /usr/local/lib -path "*/*.pyo"  -delete \
-	&& find /usr/local/lib -path "*/*.pyc"  -delete
+RUN uv sync --locked --no-default-groups --group server
 
 COPY dp ./dp
 
@@ -42,4 +46,4 @@ COPY --from=builder /usr/src/reports/target/release/dp-report /opt/dp-report
 HEALTHCHECK --start-period=5s \
 	CMD bash ./docker-healthcheck.sh
 
-CMD ["python", "-m", "dp.server"]
+CMD ["uv", "run", "--no-sync", "python", "-m", "dp.server"]

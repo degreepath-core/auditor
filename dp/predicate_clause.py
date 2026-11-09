@@ -354,7 +354,7 @@ def load_expected_value(*, key: str, value: Dict, op: str, c: Constants) -> Tupl
         pass
     elif isinstance(expected_value, list):
         expected_value = tuple(expected_value)
-    elif isinstance(expected_value, Iterable) and type(expected_value) != str:
+    elif isinstance(expected_value, Iterable) and type(expected_value) is not str:
         raise TypeError(f'unexpected type {type(expected_value)} for {expected_value!r}')
     elif isinstance(expected_value, float):
         raise TypeError(f'expected_value must not be a float: {expected_value!r}')
@@ -365,7 +365,7 @@ def load_expected_value(*, key: str, value: Dict, op: str, c: Constants) -> Tupl
     assert type(expected_value) in allowed_types, \
         ValueError(f"expected_value should be one of {allowed_types!r}, not {type(expected_value)}")
 
-    if type(expected_value) == str:
+    if type(expected_value) is str:
         expected_value = c.get_by_name(expected_value)
     elif isinstance(expected_value, tuple):
         expected_value = tuple(c.get_by_name(v) for v in expected_value)

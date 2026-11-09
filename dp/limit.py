@@ -47,9 +47,9 @@ class Limit:
 
     @staticmethod
     def load(data: Dict, *, c: Constants, ctx: 'RequirementContext') -> 'Limit':
-        at_most = data.get("at most", data.get("at-most", data.get("at_most", None)))
+        raw_at_most = data.get("at most", data.get("at-most", data.get("at_most", None)))
 
-        if at_most is None:
+        if raw_at_most is None:
             raise Exception(f'expected an at-most key; got {data}')
 
         allowed_keys = {'at most', 'at-most', 'at_most', 'where', 'message'}
@@ -60,20 +60,19 @@ class Limit:
         assert clause, 'limits are not allowed to have conditional clauses'
 
         try:
-            at_most = decimal.Decimal(int(at_most))
+            at_most = decimal.Decimal(int(raw_at_most))
             at_most_what = AtMostWhat.Courses
         except ValueError:
-            _at_most = at_most
             # must be a string, like "1 course"
-            at_most, at_most_what = at_most.split()
+            amount, unit = raw_at_most.split()
 
-            at_most = decimal.Decimal(at_most)
-            if at_most_what in ('course', 'courses'):
+            at_most = decimal.Decimal(amount)
+            if unit in ('course', 'courses'):
                 at_most_what = AtMostWhat.Courses
-            elif at_most_what in ('credit', 'credits'):
+            elif unit in ('credit', 'credits'):
                 at_most_what = AtMostWhat.Credits
             else:
-                raise ValueError(f'expected course|credits, got {at_most_what} (part of {_at_most})')
+                raise ValueError(f'expected course|credits, got {unit} (part of {raw_at_most})')
 
         return Limit(at_most=at_most, at_most_what=at_most_what, where=clause, message=data.get('message', None))
 

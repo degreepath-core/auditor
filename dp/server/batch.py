@@ -5,7 +5,7 @@ import json
 import os
 
 import tqdm  # type: ignore
-import urllib3  # type: ignore
+import urllib3
 import psycopg2  # type: ignore
 import psycopg2.extras  # type: ignore
 import psycopg2.extensions  # type: ignore
@@ -21,6 +21,7 @@ Item = Tuple[str, str]
 
 
 def get_student(student_id: str) -> Tuple[Dict, str]:
+    assert SINGLE_URL, "DP_SINGLE_URL must be set"
     r = http.request("GET", SINGLE_URL, fields={"stnum": student_id})
     text = r.data.decode("utf-8")
     return cast(Dict, json.loads(text)), text
@@ -67,6 +68,7 @@ def fetch_and_queue(
 
 def get_student_ids() -> Set[str]:
     print("fetching student ids to audit")
+    assert BATCH_URL, "DP_BATCH_URL must be set"
     r = http.request("GET", BATCH_URL)
 
     student_ids = set(r.data.decode("utf-8").split())
