@@ -1,0 +1,49 @@
+# Composite: a realistic-looking major combining course rules, either,
+# count/of, a limited query, a gen-ed query with allow_claimed, and a
+# capstone. Intended mainly as dev data.
+name: "Fixture: Imaginary Studies"
+type: major
+code: T900
+degree: B.A.
+
+result:
+  all:
+    - requirement: Foundations
+    - requirement: Methods
+    - requirement: Electives
+    - requirement: Writing in the Major
+    - requirement: Capstone
+
+requirements:
+  Foundations:
+    result:
+      all:
+        - course: IMAG 101
+        - course: IMAG 102
+
+  Methods:
+    result:
+      either:
+        - course: IMAG 210
+        - course: IMAG 211
+
+  Electives:
+    message: Four IMAG courses at level II or above; at most one may be taken elsewhere.
+    result:
+      from: courses
+      where: {subject: {$eq: IMAG}, level: {$in: [200, 300]}, number: {$neq: '399'}}
+      limit:
+        - at_most: 1
+          where: {is_stolaf: {$eq: false}}
+      assert: {count(courses): {$gte: 4}}
+
+  Writing in the Major:
+    result:
+      from: courses
+      allow_claimed: true
+      where: {subject: {$eq: IMAG}, gereqs: {$eq: WRI}}
+      assert: {count(courses): {$gte: 1}}
+
+  Capstone:
+    result:
+      course: IMAG 399

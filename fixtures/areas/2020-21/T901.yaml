@@ -1,0 +1,33 @@
+# Composite: a second realistic-looking major, used with T900 for
+# double-major dev data.
+name: "Fixture: Pretend Sciences"
+type: major
+code: T901
+degree: B.A.
+
+result:
+  all:
+    - requirement: Core
+    - requirement: Laboratory
+    - requirement: Upper Level
+
+requirements:
+  Core:
+    result:
+      count: 2
+      of:
+        - course: PRET 121
+        - course: PRET 125
+        - course: PRET 126
+
+  Laboratory:
+    result:
+      from: courses
+      where: {subject: {$eq: PRET}, lab: {$eq: true}}
+      assert: {count(courses): {$gte: 2}}
+
+  Upper Level:
+    result:
+      from: courses
+      where: {subject: {$eq: PRET}, level: {$gte: 300}}
+      assert: {sum(credits): {$gte: 3}}
