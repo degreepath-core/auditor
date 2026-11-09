@@ -39,14 +39,14 @@ class CourseInstance(Clausable):
     level: int
     name: str
     number: str
-    schedid: str
+    schedid: Optional[str]
     section: Optional[str]
     sub_type: SubType
     subject: str
     su_grade_code: Optional[GradeCode]
     term: str
     transcript_code: TranscriptCode
-    year: str
+    year: int
     yearterm: str
 
     identity_: str
@@ -67,7 +67,7 @@ class CourseInstance(Clausable):
             object.__setattr__(self, 'hash_cache_', hash(self.clbid))
         return cast(int, self.hash_cache_)
 
-    def sort_order(self) -> Tuple[int, str, str, str]:
+    def sort_order(self) -> Tuple[int, int, str, str]:
         key = CourseTypeSortOrder[self.course_type]
         return (key, self.year, self.term, self.clbid)
 

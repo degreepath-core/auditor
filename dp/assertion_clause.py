@@ -182,13 +182,13 @@ class Assertion:
     def waive(self) -> 'Assertion':
         return attr.evolve(
             self,
-            resolved=0,
+            resolved=Decimal(0),
             evaluated=True,
-            status=ResultStatus.Waived,
+            state=ResultStatus.Waived,
             overridden=True,
         )
 
-    def audit_and_resolve(self, data: Sequence['Clausable'] = tuple(), *, ctx: 'RequirementContext') -> 'SomeAssertion':
+    def audit_and_resolve(self, data: Sequence['Clausable'] = tuple(), *, ctx: 'RequirementContext') -> 'Assertion':
         if self.overridden:
             return self
 
@@ -255,7 +255,6 @@ class Assertion:
         return self.status() in PassingStatuses
 
     def rank(self) -> Tuple[Decimal, Decimal]:
-        global ZERO_POINT_OH, ONE_POINT_OH
 
         if self.state in (ResultStatus.Done, ResultStatus.Waived):
             return ONE_POINT_OH, ONE_POINT_OH
@@ -613,11 +612,11 @@ def load_single_assertion(
     # message and label
     message = data.get('message', None)
     if message is not None:
-        assert type(message) == str
+        assert type(message) is str
 
     label = data.get('label', None)
     if label is not None:
-        assert type(label) == str
+        assert type(label) is str
 
     # assertion body
     assertion = data['assert']
@@ -712,7 +711,7 @@ def load_expected_value(*, value: Dict, key: str, c: Constants) -> Tuple[Decimal
 
     original = expected
 
-    if type(expected) == str:
+    if type(expected) is str:
         expected = c.get_by_name(expected)
     elif isinstance(expected, Iterable):
         raise TypeError(f'unexpected type {type(expected)} for {expected!r}')

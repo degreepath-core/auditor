@@ -12,7 +12,7 @@ Degreepath is a tool to perform automated, comprehensive, and fast degree audits
 
 ---
 
-Requires Python 3.6+.
+Requires Python 3.15+.
 
 ```shell script
 $ python3 -m venv ./venv

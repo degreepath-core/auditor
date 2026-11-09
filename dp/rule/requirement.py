@@ -45,6 +45,7 @@ class RequirementRule(Rule, BaseRequirementRule):
 
         if result is not None:
             result = load_rule(data=result, c=c, children=data.get("requirements", {}), path=path, ctx=ctx)
+            assert result is not None, f"expected the result of {path} to load"
 
             all_child_names = set(data.get("requirements", {}).keys())
             used_child_names = set(result.get_requirement_names())

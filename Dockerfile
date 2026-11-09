@@ -10,7 +10,7 @@ COPY ./formatter ./formatter
 
 RUN cargo build --release --bin dp-report
 
-FROM python:3.9-slim-buster
+FROM python:3.15-slim-trixie
 
 WORKDIR /usr/src/app
 

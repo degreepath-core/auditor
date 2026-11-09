@@ -96,7 +96,7 @@ class Student:
         current_term = data.get('current_term', None)
 
         data_courses = data.get('courses', [])
-        load_transcript_args = dict(current_term=current_term, overrides=overrides, credits_overrides=credits_overrides)
+        load_transcript_args: Dict[str, Any] = dict(current_term=current_term, overrides=overrides, credits_overrides=credits_overrides)
         courses = [c for c in load_transcript(data_courses, **load_transcript_args)]
         courses = sorted(courses, key=lambda c: c.sort_order())
 

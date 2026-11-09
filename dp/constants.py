@@ -25,7 +25,7 @@ class Constants:
     current_area_code: str = ''
 
     def get_by_name(self, v: Union[str, Any]) -> Any:
-        if type(v) != str:
+        if type(v) is not str:
             return v
 
         if not v.startswith('$'):

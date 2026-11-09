@@ -1,5 +1,5 @@
 import abc
-from typing import Tuple, Dict, Any, TYPE_CHECKING
+from typing import Tuple, Dict, Any, Optional, TYPE_CHECKING
 import logging
 import attr
 
@@ -13,9 +13,9 @@ logger = logging.getLogger(__name__)
 class ClausableIdentifier:
     type: str
     key: str
-    value: str
+    value: Optional[str]
 
-    def to_dict(self) -> Dict[str, str]:
+    def to_dict(self) -> Dict[str, Optional[str]]:
         return attr.asdict(self)
 
 
